@@ -1,0 +1,137 @@
+package com.ionprogramming.atomic2d.blocks;
+
+import java.awt.Graphics;
+import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
+
+import com.ionprogramming.atomic2d.CollisionBodies.CollisionBody;
+import com.ionprogramming.atomic2d.Graphics.ImageHandler;
+import com.ionprogramming.atomic2d.Graphics.RotBufferedImage;
+
+public class Block {
+	
+	public CollisionBody collisionBody;
+	private BufferedImage[] imagesSource;
+	private RotBufferedImage[] images;
+	private int imageNum = 0;
+	private float xpos = 0;
+	private float ypos = 0;
+	private int width = 1;
+	private int height = 1;
+	private float xc = 0;
+	private float yc = 0;
+	
+	public void draw(Graphics g){
+		images[imageNum].draw(g, (int) xpos, (int) ypos);
+	}
+	
+	public float getXCentre(){
+		return xc;
+	}
+	
+	public void setXCentre(float x){
+		xc = x;
+	}
+	
+	public float getYCentre(){
+		return yc;
+	}
+	
+	public void setYCentre(float y){
+		yc = y;
+	}
+	
+	public void setCentre(float x, float y){
+		xc = x;
+		yc = y;
+	}
+	
+	public void setCentre(Point2D.Float p){
+		xc = p.x;
+		yc = p.y;
+	}
+	
+	public Point2D.Float getCentre(){
+		return new Point2D.Float(xc, yc);
+	}
+
+	public void setLoc(float x, float y){
+		xpos = x;
+		ypos = y;
+	}
+	
+	public void setX(float x){
+		xpos = x;
+	}
+	
+	public void setY(float y){
+		ypos = y;
+	}
+	
+	public float getX(){
+		return xpos;
+	}
+	
+	public float getY(){
+		return ypos;
+	}
+	
+	public void setCurrentImage(int index){
+		imageNum = index;
+	}
+	
+	public int getCurrentImage(){
+		return imageNum;
+	}
+	
+	public void setImages(BufferedImage[] imgs){
+		imagesSource = imgs;
+		images = new RotBufferedImage[imagesSource.length];
+		for(int n = 0; n < imagesSource.length; n++){
+			images[n] = ImageHandler.resizeImageRot(imagesSource[n], width, height);
+		}
+	}
+	
+	public BufferedImage[] getImages(){
+		return imagesSource;
+	}
+	
+	public void setImage(BufferedImage img, int index){
+		imagesSource[index] = img;
+		images[index] = ImageHandler.resizeImageRot(imagesSource[index], width, height);
+	}
+	
+	public BufferedImage getImage(int index){
+		return imagesSource[index];
+	}
+	
+	public void setWidth(int newW){
+		width = newW;
+		for(int n = 0; n < imagesSource.length; n++){
+			images[n] = ImageHandler.resizeImageRot(imagesSource[n], width, height);
+		}
+	}
+	
+	public void setHeight(int newH){
+		height = newH;
+		for(int n = 0; n < imagesSource.length; n++){
+			images[n] = ImageHandler.resizeImageRot(imagesSource[n], width, height);
+		}
+	}
+	
+	public void resize(int newW, int newH){
+		width = newW;
+		height = newH;
+		for(int n = 0; n < imagesSource.length; n++){
+			images[n] = ImageHandler.resizeImageRot(imagesSource[n], width, height);
+		}
+	}
+	
+	public void setToCollisionStats(){
+		setLoc(collisionBody.getX() - xc, collisionBody.getY() - yc);
+	}
+	
+	public void setCollisionStats(){
+		collisionBody.setCentre(getX() + xc, getY() + yc);
+	}
+}
