@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.ionprogramming.atomic2d.blocks.Block;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
+import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 
 public class Dirt extends Block{
@@ -26,6 +27,7 @@ public class Dirt extends Block{
 	
 	@Override
 	public void draw(Graphics g, float w, float h){
+		setOffset(Update.p.getOffset().x, Update.p.getOffset().y);
 		super.draw(g, w, h);
 		if((int) (getX() + getXOffset()) > -getWidth() - 8 || (int) (getX() + getXOffset() - 8) < w){
 			if((int) (getY() + getYOffset()) > -getHeight() - 8 || (int) (getY() + getYOffset() - 8) < h){

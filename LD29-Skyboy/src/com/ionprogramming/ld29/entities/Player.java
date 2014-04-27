@@ -1,9 +1,12 @@
 package com.ionprogramming.ld29.entities;
 
+import java.awt.Graphics;
+
 import com.ionprogramming.atomic2d.blocks.AnimBlock;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.graphics.Animation;
 import com.ionprogramming.ld29.Input;
+import com.ionprogramming.ld29.LD29;
 import com.ionprogramming.ld29.graphics.Images;
 
 public class Player extends AnimBlock{
@@ -14,13 +17,14 @@ public class Player extends AnimBlock{
 		resize(56, 56);
 		setLoc(x, y);
 		setCentre(28, 28);
-		setYAcc(64);
+		setYAcc(256);
 		BoxCollisionBody c = new BoxCollisionBody();
 		c.setSize(56, 56);
 		c.setFriction(0.25f);
 		c.setBounce(0);
 		c.setDynamic(false);
 		collisionBody = c;
+		setCollisionStats();
 		addAnim(new Animation(new int[]{0, 1}, new float[]{200, 800}, "right"));
 		addAnim(new Animation(new int[]{0, 1}, new float[]{400, 600}, "left"));
 		addAnim(new Animation(new int[]{0, 1}, new float[]{600, 400}, "rightStill"));
@@ -60,8 +64,14 @@ public class Player extends AnimBlock{
 			}
 		}
 		if(Input.j && getYVel() == 0){
-			setYVel(-128);
+			setYVel(-256);
 		}
 		super.update();
+	}
+	
+	@Override
+	public void draw(Graphics g, float w, float h){
+		setOffset(- getX() + LD29.width/2 - getWidth()/2, - getY() + LD29.height/2 - getHeight()/2);
+		super.draw(g, w, h);
 	}
 }
