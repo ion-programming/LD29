@@ -3,6 +3,7 @@ package com.ionprogramming.ld29.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -98,6 +99,11 @@ public class TitleScreen {
 		}
 		
 		g.dispose();
+		BoxBlurFilter filter = new BoxBlurFilter();
+		filter.setRadius(1);
+		filter.setIterations(1);
+		final int[] a = ((DataBufferInt) out.getRaster().getDataBuffer()).getData();
+		filter.filter(a, out.getWidth());
 		
 		return out;
 		

@@ -47,12 +47,28 @@ public class Collision {
 										y = y2;
 									}
 									if(Math.abs(x) < Math.abs(y)){
-										c.setX(c.getX() - x/2);
-										c1.setX(c1.getX() + x/2);
+										if(c.isFixed()){
+											c1.setX(c1.getX() + x);
+										}
+										else if(c1.isFixed()){
+											c.setX(c.getX() - x);
+										}
+										else{
+											c.setX(c.getX() - x/2);
+											c1.setX(c1.getX() + x/2);
+										}
 									}
 									else{
-										c.setY(c.getY() - y/2);
-										c1.setY(c1.getY() + y/2);
+										if(c.isFixed()){
+											c1.setY(c1.getY() + y);
+										}
+										else if(c1.isFixed()){
+											c.setY(c.getY() - y);
+										}
+										else{
+											c.setY(c.getY() - y/2);
+											c1.setY(c1.getY() + y/2);
+										}
 									}
 								}
 								else{
@@ -89,10 +105,10 @@ public class Collision {
 										}
 										if(Math.abs(xt) < Math.abs(yt)){
 											x = true;
-											c.setCentre(c.getX() + xt*c.getXVel(), c1.getY() + xt*c.getYVel());
+											c.setCentre(c.getX() + xt*c.getXVel(), c.getY() + xt*c.getYVel());
 										}
 										else{
-											c1.setCentre(c.getX() + yt*c.getXVel(), c.getY() + yt*c.getYVel());
+											c.setCentre(c.getX() + yt*c.getXVel(), c.getY() + yt*c.getYVel());
 										}
 									}
 									else{
@@ -109,7 +125,7 @@ public class Collision {
 											}
 											if(Math.abs(xt) < Math.abs(yt)){
 												x = true;
-												c.setCentre(c.getX() + xt*c.getXVel(), c1.getY() + xt*c.getYVel());
+												c.setCentre(c.getX() + xt*c.getXVel(), c.getY() + xt*c.getYVel());
 											}
 											else{
 												c.setCentre(c.getX() + yt*c.getXVel(), c.getY() + yt*c.getYVel());
@@ -147,6 +163,7 @@ public class Collision {
 										else{
 											c1.setVel(c1.getXVel()*c1.getBounce()*c.getBounce(), -c1.getYVel()*c1.getFriction()*c.getFriction());
 										}
+										c.setVel(0, 0);
 									}
 									else if(!c1.isDynamic()){
 										if(x){
@@ -155,6 +172,7 @@ public class Collision {
 										else{
 											c.setVel(c.getXVel()*c1.getBounce()*c.getBounce(), -c.getYVel()*c1.getFriction()*c.getFriction());
 										}
+										c1.setVel(0, 0);
 									}
 									else{
 										if(x){
