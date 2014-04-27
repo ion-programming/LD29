@@ -1,5 +1,7 @@
 package com.ionprogramming.ld29.entities;
 
+import java.awt.Graphics;
+
 import com.ionprogramming.atomic2d.blocks.Block;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.ld29.graphics.Images;
@@ -18,5 +20,11 @@ public class Dirt extends Block{
 		c.setBounce(1);
 		c.setDynamic(false);
 		collisionBody = c;
+	}
+	
+	@Override
+	public void draw(Graphics g){
+		super.draw(g);
+		g.drawImage(Images.grass, (int) (getX() + getXOffset() - 8), (int) (getY() + getYOffset() - 8), null);
 	}
 }

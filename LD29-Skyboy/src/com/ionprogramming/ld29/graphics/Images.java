@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 public class Images {
 	
 	public static BufferedImage[] dirt;
+	public static BufferedImage grass;
 	
 	public static void load(){
 		try {
@@ -16,6 +17,7 @@ public class Images {
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirtL.png")),
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirtR.png")),
 					};
+			grass = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/grass.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
