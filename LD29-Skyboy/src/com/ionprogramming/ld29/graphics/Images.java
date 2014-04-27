@@ -1,4 +1,4 @@
-package com.ionprogramming.ld29.Graphics;
+package com.ionprogramming.ld29.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

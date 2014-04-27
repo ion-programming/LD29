@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d.Math;
+package com.ionprogramming.atomic2d.math;
 
 import java.awt.geom.Point2D;
 

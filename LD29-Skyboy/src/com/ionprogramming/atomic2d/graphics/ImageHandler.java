@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d.Graphics;
+package com.ionprogramming.atomic2d.graphics;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;

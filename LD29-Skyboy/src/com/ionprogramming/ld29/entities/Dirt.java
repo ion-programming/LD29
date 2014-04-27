@@ -1,8 +1,8 @@
 package com.ionprogramming.ld29.entities;
 
-import com.ionprogramming.atomic2d.CollisionBodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.blocks.Block;
-import com.ionprogramming.ld29.Graphics.Images;
+import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
+import com.ionprogramming.ld29.graphics.Images;
 
 public class Dirt extends Block{
 	

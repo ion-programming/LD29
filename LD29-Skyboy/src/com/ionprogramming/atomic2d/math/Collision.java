@@ -1,8 +1,8 @@
-package com.ionprogramming.atomic2d.Math;
+package com.ionprogramming.atomic2d.math;
 
-import com.ionprogramming.atomic2d.CollisionBodies.BoxCollisionBody;
-import com.ionprogramming.atomic2d.CollisionBodies.CircleCollisionBody;
 import com.ionprogramming.atomic2d.blocks.MovingBlock;
+import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
+import com.ionprogramming.atomic2d.collisionbodies.CircleCollisionBody;
 
 public class Collision {
 	

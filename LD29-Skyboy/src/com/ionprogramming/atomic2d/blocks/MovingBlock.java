@@ -2,7 +2,7 @@ package com.ionprogramming.atomic2d.blocks;
 
 import java.awt.geom.Point2D;
 
-import com.ionprogramming.atomic2d.Math.GeomMath;
+import com.ionprogramming.atomic2d.math.GeomMath;
 
 public class MovingBlock extends Block {
 	

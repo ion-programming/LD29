@@ -2,7 +2,7 @@ package com.ionprogramming.atomic2d.blocks;
 
 import java.util.ArrayList;
 
-import com.ionprogramming.atomic2d.Graphics.Animation;
+import com.ionprogramming.atomic2d.graphics.Animation;
 
 public class AnimBlock extends MovingBlock {
 

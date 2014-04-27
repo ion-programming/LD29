@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d.Graphics;
+package com.ionprogramming.atomic2d.graphics;
 
 public class Animation {
 

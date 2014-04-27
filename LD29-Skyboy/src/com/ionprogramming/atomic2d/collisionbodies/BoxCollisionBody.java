@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d.CollisionBodies;
+package com.ionprogramming.atomic2d.collisionbodies;
 
 import java.awt.geom.Point2D;
 

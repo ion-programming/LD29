@@ -4,9 +4,9 @@ import java.awt.Graphics;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 
-import com.ionprogramming.atomic2d.CollisionBodies.CollisionBody;
-import com.ionprogramming.atomic2d.Graphics.ImageHandler;
-import com.ionprogramming.atomic2d.Graphics.RotBufferedImage;
+import com.ionprogramming.atomic2d.collisionbodies.CollisionBody;
+import com.ionprogramming.atomic2d.graphics.ImageHandler;
+import com.ionprogramming.atomic2d.graphics.RotBufferedImage;
 
 public class Block {
 	
