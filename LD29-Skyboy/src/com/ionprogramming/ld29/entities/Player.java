@@ -19,12 +19,12 @@ public class Player extends AnimBlock{
 		resize(56, 56);
 		setLoc(x, y);
 		setCentre(28, 28);
-		setYAcc(256);
+		setYAcc(512);
 		BoxCollisionBody c = new BoxCollisionBody();
 		c.setSize(56, 56);
-		c.setFriction(0.25f);
-		c.setBounce(0);
-		c.setDynamic(false);
+		c.setFriction(0.8f);
+		c.setBounce(0.4f);
+		c.setDynamic(true);
 		collisionBody = c;
 		setCollisionStats();
 		addAnim(new Animation(new int[]{0, 1}, new float[]{200, 800}, "right"));
@@ -59,14 +59,20 @@ public class Player extends AnimBlock{
 				}
 			}
 			if(Input.l){
-				setXVel(-128);
+				setXVel(getXVel() - 64);
+				if(getXVel() < -256){
+					setXVel(-256);
+				}
 			}
 			else{
-				setXVel(128);
+				setXVel(getXVel() + 64);
+				if(getXVel() > 256){
+					setXVel(256);
+				}
 			}
 		}
 		if(Input.j && getYVel() == 0){
-			setYVel(-256);
+			setYVel(-512);
 		}
 		super.update();
 	}

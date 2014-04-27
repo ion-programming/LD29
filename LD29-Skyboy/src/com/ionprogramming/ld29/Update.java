@@ -32,12 +32,10 @@ public class Update {
 	public static void updateGame(Graphics g){
 		Map.draw(g, LD29.width, LD29.height);
 		p.update();
-		p.draw(g, LD29.width, LD29.height);
-				
 		for(int n = 0; n < Map.level.size(); n++){
 			Collision.collide(p, Map.level.get(n));
 		}
-		
+		p.draw(g, LD29.width, LD29.height);
 		for(int n = 0; n < projectiles.size(); n++){
 			projectiles.get(n).update();
 			projectiles.get(n).draw(g, LD29.width, LD29.height);

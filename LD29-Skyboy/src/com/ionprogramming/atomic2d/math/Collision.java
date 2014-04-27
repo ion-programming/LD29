@@ -35,7 +35,7 @@ public class Collision {
 						if(Math.abs(yd) < (c.getHeight() + c1.getHeight())/2){
 //							MOVE FASTEST OBJECT BACK TO MOMENT OF COLLISION
 							if(!c.isFixed() || !c1.isFixed()){
-								if(c.getVelLength() == 0 && c1.getVelLength() == 0){
+								if(c.getXVel() == 0 && c.getYVel() == 0 && c1.getXVel() == 0 && c1.getYVel() == 0){
 									float x = xd - (c.getWidth() + c1.getWidth())/2;
 									float x2 = xd + (c.getWidth() + c1.getWidth())/2;
 									if(Math.abs(x2) < Math.abs(x)){
@@ -93,13 +93,13 @@ public class Collision {
 										}
 									}
 									else if(c1.isFixed()){
-										float xt = (xd - (c.getWidth() + c1.getWidth())/2)/c.getXVel();
-										float xt2 = (xd + (c.getWidth() + c1.getWidth())/2)/c.getXVel();
+										float xt = (-xd - (c.getWidth() + c1.getWidth())/2)/c.getXVel();
+										float xt2 = (-xd + (c.getWidth() + c1.getWidth())/2)/c.getXVel();
 										if(Math.abs(xt2) < Math.abs(xt)){
 											xt = xt2;
 										}
-										float yt = (yd - (c.getHeight() + c1.getHeight())/2)/c.getYVel();
-										float yt2 = (yd + (c.getHeight() + c1.getHeight())/2)/c.getYVel();
+										float yt = (-yd - (c.getHeight() + c1.getHeight())/2)/c.getYVel();
+										float yt2 = (-yd + (c.getHeight() + c1.getHeight())/2)/c.getYVel();
 										if(Math.abs(yt2) < Math.abs(yt)){
 											yt = yt2;
 										}
@@ -113,13 +113,13 @@ public class Collision {
 									}
 									else{
 										if(c.getVelLength() > c1.getVelLength()){
-											float xt = (xd - (c.getWidth() + c1.getWidth())/2)/c.getXVel();
-											float xt2 = (xd + (c.getWidth() + c1.getWidth())/2)/c.getXVel();
+											float xt = (-xd - (c.getWidth() + c1.getWidth())/2)/c.getXVel();
+											float xt2 = (-xd + (c.getWidth() + c1.getWidth())/2)/c.getXVel();
 											if(Math.abs(xt2) < Math.abs(xt)){
 												xt = xt2;
 											}
-											float yt = (yd - (c.getHeight() + c1.getHeight())/2)/c.getYVel();
-											float yt2 = (yd + (c.getHeight() + c1.getHeight())/2)/c.getYVel();
+											float yt = (-yd - (c.getHeight() + c1.getHeight())/2)/c.getYVel();
+											float yt2 = (-yd + (c.getHeight() + c1.getHeight())/2)/c.getYVel();
 											if(Math.abs(yt2) < Math.abs(yt)){
 												yt = yt2;
 											}
@@ -161,7 +161,7 @@ public class Collision {
 											c1.setVel(-c1.getXVel()*c1.getBounce()*c.getBounce(), c1.getYVel()*c1.getFriction()*c.getFriction());
 										}
 										else{
-											c1.setVel(c1.getXVel()*c1.getBounce()*c.getBounce(), -c1.getYVel()*c1.getFriction()*c.getFriction());
+											c1.setVel(c1.getXVel()*c1.getFriction()*c.getFriction(), -c1.getYVel()*c1.getBounce()*c.getBounce());
 										}
 										c.setVel(0, 0);
 									}
@@ -170,7 +170,7 @@ public class Collision {
 											c.setVel(-c.getXVel()*c1.getBounce()*c.getBounce(), c.getYVel()*c1.getFriction()*c.getFriction());
 										}
 										else{
-											c.setVel(c.getXVel()*c1.getBounce()*c.getBounce(), -c.getYVel()*c1.getFriction()*c.getFriction());
+											c.setVel(c.getXVel()*c1.getFriction()*c.getFriction(), -c.getYVel()*c1.getBounce()*c.getBounce());
 										}
 										c1.setVel(0, 0);
 									}
@@ -182,8 +182,8 @@ public class Collision {
 										}
 										else{
 											float p = c.getMass()*c.getYVel() + c1.getMass()*c1.getYVel();
-											c.setVel(c.getXVel()*c1.getBounce()*c.getBounce(), (-c.getYVel() + c.getMass()*p)*c1.getFriction()*c.getFriction());
-											c1.setVel(c1.getXVel()*c1.getBounce()*c.getBounce(), (-c1.getYVel() + c1.getMass()*p)*c1.getFriction()*c.getFriction());
+											c.setVel(c.getXVel()*c1.getFriction()*c.getFriction(), (-c.getYVel() + c.getMass()*p)*c1.getBounce()*c.getBounce());
+											c1.setVel(c1.getXVel()*c1.getFriction()*c.getFriction(), (-c1.getYVel() + c1.getMass()*p)*c1.getBounce()*c.getBounce());
 										}
 									}
 									if(c.isFixed()){

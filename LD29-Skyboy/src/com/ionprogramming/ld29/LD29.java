@@ -6,10 +6,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.graphics.TitleScreen;
@@ -24,7 +20,6 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	public Color c = new Color(80, 180, 255);
 	
 	int angle = 0;
-	static BufferedImage pic;
 
 	public void init() {
 		setSize(width, height);
@@ -32,11 +27,6 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		Input.mouse(this);
 		setFocusable(true);
 		setBackground(c);
-		try {
-			pic = ImageIO.read(LD29.class.getClassLoader().getResourceAsStream("res/mug.png"));
-		} 
-		catch (IOException e) {
-		}
 		Images.load();
 		
 		if(TitleScreen.enabled){
