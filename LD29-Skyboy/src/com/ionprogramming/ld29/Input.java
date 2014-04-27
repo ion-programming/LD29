@@ -16,7 +16,7 @@ public class Input {
 	public static boolean ml = false;
 	
 	public static void keyPressed(KeyEvent e){
-		if(TitleScreen.showing){
+		if(TitleScreen.showing&&!TitleScreen.ion && !TitleScreen.ld){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
 				Update.initGame();
 				TitleScreen.showing = false;

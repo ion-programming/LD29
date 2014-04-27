@@ -24,9 +24,9 @@ public class TitleScreen {
 	
 	static Random r = new Random();
 	
-	public static int offset1 = 0;
-	public static int offset2 = 0;
-	public static int offset3 = 0;
+	public static float offset1 = 0;
+	public static float offset2 = 0;
+	public static float offset3 = 0;
 	
 	public static long startTime;
 	
@@ -40,9 +40,9 @@ public class TitleScreen {
 		starColours.add(new Color(0xFF7E42));
 		
 		
-		stars[0] = makeStars(2, 400);
-		stars[1] = makeStars(3, 100);
-		stars[2] = makeStars(4, 50);
+		stars[0] = makeStars(3, 400);
+		stars[1] = makeStars(4, 100);
+		stars[2] = makeStars(5, 50);
 		
 		startTime = System.nanoTime();
 	}
@@ -65,14 +65,14 @@ public class TitleScreen {
 		if(!ion && !ld){
 			//render stars
 					
-			g.drawImage(stars[0], offset1, 0, null);
-			g.drawImage(stars[0], offset1 + stars[0].getWidth(), 0, null);
+			g.drawImage(stars[0], (int)offset1, 0, null);
+			g.drawImage(stars[0], (int)offset1 + stars[0].getWidth(), 0, null);
 			
-			g.drawImage(stars[1], offset2, 0, null);
-			g.drawImage(stars[1], offset2 + stars[1].getWidth(), 0, null);
+			g.drawImage(stars[1], (int)offset2, 0, null);
+			g.drawImage(stars[1], (int)offset2 + stars[1].getWidth(), 0, null);
 			
-			g.drawImage(stars[2], offset3, 0, null);
-			g.drawImage(stars[2], offset3 + stars[2].getWidth(), 0, null);
+			g.drawImage(stars[2], (int)offset3, 0, null);
+			g.drawImage(stars[2], (int)offset3 + stars[2].getWidth(), 0, null);
 			
 			
 			//render earth
@@ -90,17 +90,17 @@ public class TitleScreen {
 	public static void update(){
 			
 		if(!ion && !ld){
-			offset1--;
+			offset1-=0.5;
 			if(offset1 <= -stars[0].getWidth()){
 				offset1 = 0;
 			}
 			
-			offset2-=2;
+			offset2-=1;
 			if(offset2 <= -stars[1].getWidth()){
 				offset2 = 0;
 			}
 			
-			offset3-=3;
+			offset3-=1.5;
 			if(offset3 <= -stars[2].getWidth()){
 				offset3 = 0;
 			}
