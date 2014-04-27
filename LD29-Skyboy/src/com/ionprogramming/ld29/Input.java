@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import com.ionprogramming.ld29.entities.Projectile;
+import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.TitleScreen;
 
 public class Input {
@@ -20,6 +21,7 @@ public class Input {
 		if(TitleScreen.showing&&!TitleScreen.ion && !TitleScreen.ld){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
 				Update.initGame();
+				HUD.init();
 				TitleScreen.showing = false;
 			}
 		}

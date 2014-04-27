@@ -1,25 +1,56 @@
 package com.ionprogramming.ld29.graphics;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import com.ionprogramming.ld29.entities.Player;
 
 public class HUD {
-
+	
+	public static Font f;
+	
+	public static void init(){
+		try {
+			f = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res/NOVASQUARE.TTF") );
+		} catch (FontFormatException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void render(Graphics g){
+		//Background
 		g.setColor(new Color(0x802c3e50, true));
-		g.fillRect(5, 5, 260, 105);
+		g.fillRect(5, 5, 235, 80);
 		
+		//Health
 		g.setColor(new Color(0x80c0392b, true));
-		g.fillRect(10, 10, 150, 20);
+		g.fillRect(10, 10, (int)((Player.health/(float)Player.maxHealth) * 100 * 1.5), 20);
 		
+		g.setColor(Color.white);
+		g.setFont(f.deriveFont(18f));
+		g.drawString("HEALTH", 15, 27);
+		
+		//Armour
+		g.setColor(new Color(0x80c0392b, true));
 		g.fillRect(10, 35, 150, 20);
 		
+		g.setColor(Color.white);
+		g.drawString("ARMOUR", 15, 52);
+		
+		//Ammo
+		g.setColor(new Color(0x80c0392b, true));
 		g.fillRect(10, 60, 150, 20);
 		
-		g.fillRect(10, 85, 150, 20);
+		g.setColor(Color.white);
+		g.drawString("AMMO", 15, 77);
 		
+		//Picture
 		g.setColor(new Color(0x80000000, true));
-		g.fillRect(165, 10, 95, 95);
+		g.fillRect(165, 10, 70, 70);
 	}
 	
 }

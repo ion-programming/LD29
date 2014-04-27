@@ -13,6 +13,14 @@ public class Player extends AnimBlock{
 	
 	public String gunType = "laser";
 	
+	public static int health = 4;
+	public static int maxHealth = 5;
+	public static int shield = 15;
+	public static int maxShield = 15;
+	public static int ammo = 40;
+	public static int maxAmmo = 40;
+	
+	
 	public Player(float x, float y){
 		setImages(Images.player);
 		setCurrentImage(0);
