@@ -18,6 +18,7 @@ public class Dirt extends Block{
 		c.setSize(64, 64);
 		c.setFriction(1);
 		c.setBounce(1);
+		c.setFixed(true);
 		c.setDynamic(false);
 		collisionBody = c;
 	}

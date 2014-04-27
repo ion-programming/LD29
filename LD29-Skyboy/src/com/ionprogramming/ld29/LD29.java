@@ -94,11 +94,11 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		KeyInput.keyPressed(e);
+		Input.keyPressed(e);
 	}
 
 	public void keyReleased(KeyEvent e) {
-		KeyInput.keyReleased(e);
+		Input.keyReleased(e);
 	}
 
 	public void keyTyped(KeyEvent e) {
