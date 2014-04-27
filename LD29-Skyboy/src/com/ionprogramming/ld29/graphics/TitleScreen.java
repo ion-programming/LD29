@@ -11,6 +11,10 @@ import com.ionprogramming.ld29.LD29;
 
 public class TitleScreen {
 	
+	
+	public static boolean ion = true;
+	public static boolean ld = true;
+	
 	public static boolean enabled = true;
 	public static boolean showing = true;
 	
@@ -23,6 +27,8 @@ public class TitleScreen {
 	public static int offset1 = 0;
 	public static int offset2 = 0;
 	public static int offset3 = 0;
+	
+	public static long startTime;
 	
 	
 	public static void init(){
@@ -37,50 +43,78 @@ public class TitleScreen {
 		stars[0] = makeStars(2, 400);
 		stars[1] = makeStars(3, 100);
 		stars[2] = makeStars(4, 50);
+		
+		startTime = System.nanoTime();
 	}
 	
 	public static void render(Graphics g){
+		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LD29.width, LD29.height);
 		
-		//render stars
-				
-		g.drawImage(stars[0], offset1, 0, null);
-		g.drawImage(stars[0], offset1 + stars[0].getWidth(), 0, null);
+		if(ion){
+			g.setColor(Color.WHITE);
+			g.fillRect(0, 0, LD29.width, LD29.height);
+			g.drawImage(Images.ion, 0, 0, null);	
+		}
 		
-		g.drawImage(stars[1], offset2, 0, null);
-		g.drawImage(stars[1], offset2 + stars[1].getWidth(), 0, null);
+		if(ld){
+			g.drawImage(Images.ld, 0, 0, null);
+		}
 		
-		g.drawImage(stars[2], offset3, 0, null);
-		g.drawImage(stars[2], offset3 + stars[2].getWidth(), 0, null);
-		
-		
-		//render earth
-		g.drawImage(Images.earth, LD29.width/2-Images.earth.getWidth()/2, 150, null);
-		
-		//render logo
-		g.drawImage(Images.skyboy, LD29.width/2-Images.skyboy.getWidth()/2, 5, null);
-		
-		//render options
-		g.drawImage(Images.play, LD29.width/2-Images.play.getWidth()/2, LD29.height-Images.play.getHeight()-5, null);
+		if(!ion && !ld){
+			//render stars
+					
+			g.drawImage(stars[0], offset1, 0, null);
+			g.drawImage(stars[0], offset1 + stars[0].getWidth(), 0, null);
+			
+			g.drawImage(stars[1], offset2, 0, null);
+			g.drawImage(stars[1], offset2 + stars[1].getWidth(), 0, null);
+			
+			g.drawImage(stars[2], offset3, 0, null);
+			g.drawImage(stars[2], offset3 + stars[2].getWidth(), 0, null);
+			
+			
+			//render earth
+			g.drawImage(Images.earth, LD29.width/2-Images.earth.getWidth()/2, 150, null);
+			
+			//render logo
+			g.drawImage(Images.skyboy, LD29.width/2-Images.skyboy.getWidth()/2, 5, null);
+			
+			//render options
+			g.drawImage(Images.play, LD29.width/2-Images.play.getWidth()/2, LD29.height-Images.play.getHeight()-5, null);
+		}
 		
 	}
 	
 	public static void update(){
-		offset1--;
-		if(offset1 <= -stars[0].getWidth()){
-			offset1 = 0;
+			
+		if(!ion && !ld){
+			offset1--;
+			if(offset1 <= -stars[0].getWidth()){
+				offset1 = 0;
+			}
+			
+			offset2-=2;
+			if(offset2 <= -stars[1].getWidth()){
+				offset2 = 0;
+			}
+			
+			offset3-=3;
+			if(offset3 <= -stars[2].getWidth()){
+				offset3 = 0;
+			}
+		}
+		else{
+			if((System.nanoTime() - startTime) / 1000000000 == 1){
+				ld = false;
+			}
+			else if((System.nanoTime() - startTime) / 1000000000 == 2){
+				ion = false;
+			}
 		}
 		
-		offset2-=2;
-		if(offset2 <= -stars[1].getWidth()){
-			offset2 = 0;
-		}
 		
-		offset3-=3;
-		if(offset3 <= -stars[2].getWidth()){
-			offset3 = 0;
-		}
 	}
 	
 	public static BufferedImage makeStars(int size, int num){

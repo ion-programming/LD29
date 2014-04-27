@@ -26,7 +26,7 @@ public class Window extends JFrame {
 
 	public Window() {
 		LD29 game = new LD29();
-		setTitle("Skyboy");
+		setTitle("Skyboy - LD29 - Ion Programming");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(30, 30, LD29.width + 6, LD29.height + 26);
