@@ -57,7 +57,7 @@ public class Input {
 	
 	public static void mouse(Applet a){
 		MouseAdapter mouseAdapter = new MouseAdapter(){
-			public void mouseClicked(MouseEvent e){
+			public void mousePressed(MouseEvent e){
 				if(TitleScreen.showing){
 					//Do nothing... Theres no mouse input here
 				}
@@ -77,7 +77,6 @@ public class Input {
 					}
 				}
 			}
-			
 			public void mouseMoved(MouseEvent e){
 				if(e.getX() < LD29.width/2){
 					ml = true;

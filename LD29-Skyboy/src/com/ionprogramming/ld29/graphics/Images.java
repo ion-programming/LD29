@@ -26,8 +26,14 @@ public class Images {
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirtR.png")),
 					};
 			player = new BufferedImage[]{
-					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirt.png")),
-					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirtL.png"))
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/sR1.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/sR2.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/sL1.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/sL2.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/R1.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/R2.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/L1.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/L2.png")),
 					};
 			grass = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/grass.png"));
 			skyboy = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/skyboy.png"));

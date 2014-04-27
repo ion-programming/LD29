@@ -31,7 +31,6 @@ public class Update {
 	}
 	
 	public static void updateGame(Graphics g){
-		Map.draw(g, LD29.width, LD29.height);
 		p.update();
 		for(int n = 0; n < Map.level.size(); n++){
 			Collision.collide(p, Map.level.get(n));
@@ -41,7 +40,7 @@ public class Update {
 			projectiles.get(n).update();
 			projectiles.get(n).draw(g, LD29.width, LD29.height);
 		}
-		
+		Map.draw(g, LD29.width, LD29.height);
 		HUD.render(g);
 	}
 }

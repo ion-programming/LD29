@@ -70,6 +70,7 @@ public class Animation {
 			float t = System.nanoTime()/1000000;
 			if(t - startTime >= time[frame]){
 				frame++;
+				startTime = System.nanoTime()/1000000;
 				if(frame >= imageNum.length){
 					if(loop){
 						play();

@@ -35,10 +35,10 @@ public class Player extends AnimBlock{
 		c.setDynamic(true);
 		collisionBody = c;
 		setCollisionStats();
-		addAnim(new Animation(new int[]{0, 1}, new float[]{200, 800}, "right"));
-		addAnim(new Animation(new int[]{0, 1}, new float[]{400, 600}, "left"));
-		addAnim(new Animation(new int[]{0, 1}, new float[]{600, 400}, "rightStill"));
-		addAnim(new Animation(new int[]{0, 1}, new float[]{800, 200}, "leftStill"));
+		addAnim(new Animation(new int[]{4, 5}, new float[]{250, 250}, "right"));
+		addAnim(new Animation(new int[]{6, 7}, new float[]{250, 250}, "left"));
+		addAnim(new Animation(new int[]{0, 1}, new float[]{250, 250}, "rightStill"));
+		addAnim(new Animation(new int[]{2, 3}, new float[]{250, 250}, "leftStill"));
 	}
 	
 	@Override
