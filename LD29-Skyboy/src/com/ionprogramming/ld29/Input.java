@@ -63,6 +63,12 @@ public class Input {
 					if(e.getButton() == MouseEvent.BUTTON1){
 						
 						Update.projectiles.add(new Projectile(Update.p.getX(), Update.p.getY(), Update.p.gunType));
+						if(ml){
+							Update.p.setXVel(Update.p.getXVel()+400);
+						}
+						else{
+							Update.p.setXVel(Update.p.getXVel()-400);
+						}
 					}
 					else if(e.getButton() == MouseEvent.BUTTON3){
 						

@@ -3,6 +3,7 @@ package com.ionprogramming.ld29.entities;
 import com.ionprogramming.atomic2d.blocks.MovingBlock;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.ld29.Input;
+import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 
 public class Projectile extends MovingBlock{
@@ -32,7 +33,7 @@ public class Projectile extends MovingBlock{
 	
 	@Override
 	public void update(){
-		
+		setOffset(Update.p.getOffset().x, Update.p.getOffset().y);
 		super.update();
 	}
 }
