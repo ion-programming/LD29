@@ -106,6 +106,7 @@ public class Collision {
 										if(Math.abs(xt) < Math.abs(yt)){
 											x = true;
 											c.setCentre(c.getX() + xt*c.getXVel(), c.getY() + xt*c.getYVel());
+											
 										}
 										else{
 											c.setCentre(c.getX() + yt*c.getXVel(), c.getY() + yt*c.getYVel());

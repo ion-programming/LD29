@@ -23,10 +23,16 @@ public class MovingBlock extends Block {
 			}
 			else{
 				float t = System.nanoTime()/1000000000f;
-				xv += xa*(t - time);
-				yv += ya*(t - time);
 				setX(getX() + xv*(t - time));
 				setY(getY() + yv*(t - time));
+				xv += xa*(t - time);
+				yv += ya*(t - time);
+				if(Math.abs(xv) < 5){
+					xv = 0;
+				}
+				if(Math.abs(yv) < 5){
+					yv = 0;
+				}
 				if(collisionBody != null){
 					setCollisionStats();
 				}
