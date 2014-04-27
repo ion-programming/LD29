@@ -20,9 +20,36 @@ public class Block {
 	private int height = 1;
 	private float xc = 0;
 	private float yc = 0;
+	private float xOffset = 0;
+	private float yOffset = 0;
 	
 	public void draw(Graphics g){
-		images[imageNum].draw(g, (int) xpos, (int) ypos);
+		images[imageNum].draw(g, (int) (xpos + xOffset), (int) (ypos + yOffset));
+	}
+	
+	public float getXOffset(){
+		return xOffset;
+	}
+	
+	public float getYOffset(){
+		return yOffset;
+	}
+	
+	public void setXOffset(float x){
+		xOffset = x;
+	}
+	
+	public void setYOffset(float y){
+		yOffset = y;
+	}
+	
+	public Point2D.Float getOffset(){
+		return new Point2D.Float(xOffset, yOffset);
+	}
+	
+	public void setOffset(float x, float y){
+		xOffset = x;
+		yOffset = y;
 	}
 	
 	public float getXCentre(){

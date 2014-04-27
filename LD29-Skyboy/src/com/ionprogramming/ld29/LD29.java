@@ -16,8 +16,8 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 
 	private Image dbImage;
 	private Graphics dbg;
-	public int width = 512;
-	public int height = 512;
+	public int width = 800;
+	public int height = 500;
 	public Color c = new Color(80, 180, 255);
 	
 	int angle = 0;

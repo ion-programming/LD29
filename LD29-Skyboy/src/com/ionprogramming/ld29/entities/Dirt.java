@@ -1,5 +1,22 @@
 package com.ionprogramming.ld29.entities;
 
-public class Dirt {
+import com.ionprogramming.atomic2d.CollisionBodies.BoxCollisionBody;
+import com.ionprogramming.atomic2d.blocks.Block;
+import com.ionprogramming.ld29.Graphics.Images;
+
+public class Dirt extends Block{
 	
+	public Dirt(int type, float x, float y){
+		setImages(Images.dirt);
+		setCurrentImage(type);
+		resize(64, 64);
+		setLoc(x, y);
+		setCentre(32, 32);
+		BoxCollisionBody c = new BoxCollisionBody();
+		c.setSize(64, 64);
+		c.setFriction(1);
+		c.setBounce(1);
+		c.setDynamic(false);
+		collisionBody = c;
+	}
 }
