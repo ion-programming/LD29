@@ -17,7 +17,7 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	private Graphics dbg;
 	public static int width = 800;
 	public static int height = 500;
-	public Color c = new Color(80, 180, 255);
+	public Color c = new Color(0x2980b9);
 	
 	int angle = 0;
 
@@ -27,6 +27,7 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		Input.mouse(this);
 		setFocusable(true);
 		setBackground(c);
+
 		Images.load();
 		
 		if(TitleScreen.enabled){

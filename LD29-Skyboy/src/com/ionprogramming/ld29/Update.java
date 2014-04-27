@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.ionprogramming.atomic2d.math.Collision;
 import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
+import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.graphics.TitleScreen;
 import com.ionprogramming.ld29.map.Map;
@@ -40,5 +41,7 @@ public class Update {
 			projectiles.get(n).update();
 			projectiles.get(n).draw(g, LD29.width, LD29.height);
 		}
+		
+		HUD.render(g);
 	}
 }
