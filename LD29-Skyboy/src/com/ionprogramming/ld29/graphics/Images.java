@@ -25,6 +25,7 @@ public class Images {
 					};
 			player = new BufferedImage[]{
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirt.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/dirtL.png"))
 					};
 			grass = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/grass.png"));
 			skyboy = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/skyboy.png"));

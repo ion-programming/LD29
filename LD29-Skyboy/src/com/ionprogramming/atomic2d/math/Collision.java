@@ -1,12 +1,12 @@
 package com.ionprogramming.atomic2d.math;
 
-import com.ionprogramming.atomic2d.blocks.MovingBlock;
+import com.ionprogramming.atomic2d.blocks.Block;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.collisionbodies.CircleCollisionBody;
 
 public class Collision {
 	
-	public static void collide(MovingBlock b, MovingBlock b1){
+	public static void collide(Block b, Block b1){
 		if(b.collisionBody != null && b1.collisionBody != null){
 			if(b.collisionBody.getClass() == CircleCollisionBody.class){
 				CircleCollisionBody c = (CircleCollisionBody) b.collisionBody;
@@ -167,6 +167,12 @@ public class Collision {
 											c.setVel(c.getXVel()*c1.getBounce()*c.getBounce(), (-c.getYVel() + c.getMass()*p)*c1.getFriction()*c.getFriction());
 											c1.setVel(c1.getXVel()*c1.getBounce()*c.getBounce(), (-c1.getYVel() + c1.getMass()*p)*c1.getFriction()*c.getFriction());
 										}
+									}
+									if(c.isFixed()){
+										c.setVel(0, 0);
+									}
+									else if(c1.isFixed()){
+										c1.setVel(0, 0);
 									}
 								}
 							}

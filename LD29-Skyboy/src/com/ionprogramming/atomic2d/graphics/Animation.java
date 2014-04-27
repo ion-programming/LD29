@@ -7,7 +7,7 @@ public class Animation {
 	private String id = "";
 	private float startTime;
 	private int frame;
-	private boolean loop = false;
+	private boolean loop = true;
 	private boolean done = false;
 	private boolean paused = false;
 	

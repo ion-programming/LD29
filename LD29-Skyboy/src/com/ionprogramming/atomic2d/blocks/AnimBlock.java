@@ -60,4 +60,8 @@ public class AnimBlock extends MovingBlock {
 	public boolean isCurrentAnimFinished(){
 		return getAnim(currentAnim).isFinished();
 	}
+	
+	public String getCurrentAnimID(){
+		return currentAnim;
+	}
 }

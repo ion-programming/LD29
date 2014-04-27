@@ -21,6 +21,7 @@ public class Dirt extends Block{
 		c.setFixed(true);
 		c.setDynamic(false);
 		collisionBody = c;
+		setCollisionStats();
 	}
 	
 	@Override
