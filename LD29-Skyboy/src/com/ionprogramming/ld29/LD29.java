@@ -11,13 +11,16 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.ionprogramming.ld29.graphics.Images;
+import com.ionprogramming.ld29.graphics.TitleScreen;
+
 public class LD29 extends Applet implements Runnable, KeyListener {
 	private static final long serialVersionUID = 1L;
 
 	private Image dbImage;
 	private Graphics dbg;
-	public int width = 800;
-	public int height = 500;
+	public static int width = 800;
+	public static int height = 500;
 	public Color c = new Color(80, 180, 255);
 	
 	int angle = 0;
@@ -33,7 +36,14 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		} 
 		catch (IOException e) {
 		}
-		Update.initMenu();
+		Images.load();
+		
+		if(TitleScreen.enabled){
+			Update.initMenu();
+		}
+		else{
+			Update.initGame();
+		}
 	}
 
 	public void start() {
@@ -63,7 +73,12 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	}
 
 	public void paint(Graphics g) {
-		Update.updateMenu(g);
+		if(TitleScreen.showing && TitleScreen.enabled){
+			Update.updateMenu(g);
+		}
+		else{
+			Update.updateGame(g);
+		}
 	}
 
 	public void update(Graphics g) {
@@ -79,11 +94,11 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-
+		KeyInput.keyPressed(e);
 	}
 
 	public void keyReleased(KeyEvent e) {
-
+		KeyInput.keyReleased(e);
 	}
 
 	public void keyTyped(KeyEvent e) {

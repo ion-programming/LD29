@@ -19,7 +19,7 @@ public class Update {
 		
 	}
 	
-	public static void updateGame(){
+	public static void updateGame(Graphics g){
 		
 	}
 }

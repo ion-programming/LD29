@@ -25,17 +25,17 @@ public class Window extends JFrame {
 	}
 
 	public Window() {
-		LD29 test = new LD29();
-		setTitle("Ion2D");
+		LD29 game = new LD29();
+		setTitle("Skyboy");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, test.width + 6, test.height + 26);
+		setBounds(30, 30, LD29.width + 6, LD29.height + 26);
 		contentPane = new JPanel();
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		contentPane.add(test);
-		test.setVisible(true);
-		test.init();
-		test.start();
+		contentPane.add(game);
+		game.setVisible(true);
+		game.init();
+		game.start();
 	}
 }
