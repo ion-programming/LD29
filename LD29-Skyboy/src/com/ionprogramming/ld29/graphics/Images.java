@@ -13,6 +13,8 @@ public class Images {
 	public static BufferedImage skyboy;
 	public static BufferedImage play;
 	public static BufferedImage map;
+	public static BufferedImage earth;
+
 	
 	public static void load(){
 		try {
@@ -28,6 +30,7 @@ public class Images {
 			skyboy = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/skyboy.png"));
 			play = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
 			map = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map.png"));
+			earth = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/earth.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

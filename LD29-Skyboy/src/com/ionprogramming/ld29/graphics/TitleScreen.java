@@ -22,7 +22,7 @@ public class TitleScreen {
 		//render stars
 		
 		//render earth
-		
+		g.drawImage(Images.earth, LD29.width/2-Images.earth.getWidth()/2, 150, null);
 		//render logo
 		g.drawImage(Images.skyboy, LD29.width/2-Images.skyboy.getWidth()/2, 5, null);
 		
