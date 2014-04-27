@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import com.ionprogramming.ld29.entities.Projectile;
 import com.ionprogramming.ld29.graphics.TitleScreen;
 
 public class Input {
@@ -53,13 +54,19 @@ public class Input {
 	}
 	
 	public static void mouse(Applet a){
-		a.addMouseListener(new MouseAdapter(){
+		MouseAdapter mouseAdapter = new MouseAdapter(){
 			public void mouseClicked(MouseEvent e){
-				if(e.getButton() == MouseEvent.BUTTON1){
-					
+				if(TitleScreen.showing){
+					//Do nothing... Theres no mouse input here
 				}
-				else if(e.getButton() == MouseEvent.BUTTON3){
-					
+				else{
+					if(e.getButton() == MouseEvent.BUTTON1){
+						
+						Update.projectiles.add(new Projectile(Update.p.getX(), Update.p.getY(), Update.p.gunType));
+					}
+					else if(e.getButton() == MouseEvent.BUTTON3){
+						
+					}
 				}
 			}
 			
@@ -71,6 +78,10 @@ public class Input {
 					ml = false;
 				}
 			}
-		});
+		};
+		
+		a.addMouseListener(mouseAdapter);
+		a.addMouseMotionListener(mouseAdapter);
+		
 	}
 }

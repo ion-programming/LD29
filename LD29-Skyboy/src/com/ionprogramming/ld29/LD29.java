@@ -29,6 +29,7 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 	public void init() {
 		setSize(width, height);
 		addKeyListener(this);
+		Input.mouse(this);
 		setFocusable(true);
 		setBackground(c);
 		try {

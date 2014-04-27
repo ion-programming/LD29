@@ -11,6 +11,8 @@ import com.ionprogramming.ld29.graphics.Images;
 
 public class Player extends AnimBlock{
 	
+	public String gunType = "laser";
+	
 	public Player(float x, float y){
 		setImages(Images.player);
 		setCurrentImage(0);
