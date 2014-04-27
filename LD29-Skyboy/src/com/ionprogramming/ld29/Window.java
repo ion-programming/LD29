@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d;
+package com.ionprogramming.ld29;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,7 +25,7 @@ public class Window extends JFrame {
 	}
 
 	public Window() {
-		Test test = new Test();
+		LD29 test = new LD29();
 		setTitle("Ion2D");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

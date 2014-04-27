@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d;
+package com.ionprogramming.ld29;
 
 import java.applet.Applet;
 import java.awt.Color;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Test extends Applet implements Runnable, KeyListener {
+public class LD29 extends Applet implements Runnable, KeyListener {
 	private static final long serialVersionUID = 1L;
 
 	private Image dbImage;
@@ -29,11 +29,11 @@ public class Test extends Applet implements Runnable, KeyListener {
 		setFocusable(true);
 		setBackground(c);
 		try {
-			pic = ImageIO.read(Test.class.getClassLoader().getResourceAsStream("res/mug.png"));
+			pic = ImageIO.read(LD29.class.getClassLoader().getResourceAsStream("res/mug.png"));
 		} 
 		catch (IOException e) {
 		}
-		Thingo.init();
+		Update.initMenu();
 	}
 
 	public void start() {
@@ -63,7 +63,7 @@ public class Test extends Applet implements Runnable, KeyListener {
 	}
 
 	public void paint(Graphics g) {
-		Thingo.update(g);
+		Update.updateMenu(g);
 	}
 
 	public void update(Graphics g) {

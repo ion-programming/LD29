@@ -1,4 +1,4 @@
-package com.ionprogramming.atomic2d;
+package com.ionprogramming.ld29;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -7,7 +7,7 @@ import com.ionprogramming.atomic2d.CollisionBodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.Math.Collision;
 import com.ionprogramming.atomic2d.blocks.MovingBlock;
 
-public class Thingo {
+public class Update {
 	
 	static MovingBlock b1 = new MovingBlock();
 	static BoxCollisionBody c1 = new BoxCollisionBody();
@@ -15,8 +15,8 @@ public class Thingo {
 	static MovingBlock b2 = new MovingBlock();
 	static BoxCollisionBody c2 = new BoxCollisionBody();
 	
-	public static void init(){
-		b1.setImages(new BufferedImage[]{Test.pic});
+	public static void initMenu(){
+		b1.setImages(new BufferedImage[]{LD29.pic});
 		b1.setCurrentImage(0);
 		b1.setLoc(200, 200);
 		b1.setCentre(25, 25);
@@ -28,7 +28,7 @@ public class Thingo {
 		c1.setDynamic(true);
 		b1.collisionBody = c1;
 		
-		b2.setImages(new BufferedImage[]{Test.pic});
+		b2.setImages(new BufferedImage[]{LD29.pic});
 		b2.setCurrentImage(0);
 		b2.resize(50, 50);
 		b2.setCentre(25, 25);	//local pivot point for rotations
@@ -41,11 +41,19 @@ public class Thingo {
 		b2.collisionBody = c2;
 	}
 	
-	public static void update(Graphics g){
+	public static void updateMenu(Graphics g){
 		b1.update();
 		b2.update();
 		Collision.collide(b2, b1);
 		b1.draw(g);
 		b2.draw(g);
+	}
+	
+	public static void initGame(){
+		
+	}
+	
+	public static void updateGame(){
+		
 	}
 }
