@@ -23,8 +23,12 @@ public class Dirt extends Block{
 	}
 	
 	@Override
-	public void draw(Graphics g){
-		super.draw(g);
-		g.drawImage(Images.grass, (int) (getX() + getXOffset() - 8), (int) (getY() + getYOffset() - 8), null);
+	public void draw(Graphics g, float w, float h){
+		super.draw(g, w, h);
+		if((int) (getX() + getXOffset()) > -getWidth() - 8 || (int) (getX() + getXOffset() - 8) < w){
+			if((int) (getY() + getYOffset()) > -getHeight() - 8 || (int) (getY() + getYOffset() - 8) < h){
+				g.drawImage(Images.grass, (int) (getX() + getXOffset() - 8), (int) (getY() + getYOffset() - 8), null);
+			}
+		}
 	}
 }

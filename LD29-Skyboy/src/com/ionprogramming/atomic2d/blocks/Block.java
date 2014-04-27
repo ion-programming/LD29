@@ -23,8 +23,12 @@ public class Block {
 	private float xOffset = 0;
 	private float yOffset = 0;
 	
-	public void draw(Graphics g){
-		images[imageNum].draw(g, (int) (xpos + xOffset), (int) (ypos + yOffset));
+	public void draw(Graphics g, float w, float h){
+		if((int) (xpos + xOffset) > -width || (int) (xpos + xOffset) < w){
+			if((int) (ypos + yOffset) > -height || (int) (ypos + yOffset) < h){
+				images[imageNum].draw(g, (int) (xpos + xOffset), (int) (ypos + yOffset));
+			}
+		}
 	}
 	
 	public float getXOffset(){
@@ -144,6 +148,18 @@ public class Block {
 		for(int n = 0; n < imagesSource.length; n++){
 			images[n] = ImageHandler.resizeImageRot(imagesSource[n], width, height);
 		}
+	}
+	
+	public float getWidth(){
+		return width;
+	}
+	
+	public float getHeight(){
+		return height;
+	}
+	
+	public Point2D.Float getSize(){
+		return new Point2D.Float(width, height);
 	}
 	
 	public void resize(int newW, int newH){
