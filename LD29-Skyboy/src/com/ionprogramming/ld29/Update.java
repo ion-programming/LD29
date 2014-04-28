@@ -73,6 +73,10 @@ public class Update {
 				projectiles.get(n).update();
 				projectiles.get(n).draw(g, LD29.width, LD29.height);
 			}
+			
+			c.update();
+			c.draw(g, LD29.width, LD29.height);
+			
 			Map.draw(g, LD29.width, LD29.height);
 			
 			g2.setPaint(mist);
@@ -81,9 +85,5 @@ public class Update {
 			HUD.render(g);
 			
 		}
-		c.update();
-		c.draw(g, LD29.width, LD29.height);
-		Map.draw(g, LD29.width, LD29.height);
-		HUD.render(g);
 	}
 }
