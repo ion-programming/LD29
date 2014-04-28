@@ -8,6 +8,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import com.ionprogramming.atomic2d.math.Collision;
+import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
 import com.ionprogramming.ld29.graphics.HUD;
@@ -27,6 +28,7 @@ public class Update {
 	static GradientPaint mist = new GradientPaint(0,0,new Color(0x40969696, true),0, 500,new Color(0x40CCCCCC, true));
 	
 	static Graphics2D g2;
+	public static Cannon c;
 	
 	public static void initMenu(){
 		TitleScreen.init();
@@ -40,6 +42,7 @@ public class Update {
 	public static void initGame(){
 		Map.load(Images.map);
 		p = new Player(0, 0);
+		c = new Cannon(0, 0);
 	}
 	
 	public static void updateGame(Graphics g){
@@ -78,5 +81,9 @@ public class Update {
 			HUD.render(g);
 			
 		}
+		c.update();
+		c.draw(g, LD29.width, LD29.height);
+		Map.draw(g, LD29.width, LD29.height);
+		HUD.render(g);
 	}
 }

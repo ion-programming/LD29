@@ -6,7 +6,8 @@ import com.ionprogramming.atomic2d.collisionbodies.CircleCollisionBody;
 
 public class Collision {
 	
-	public static void collide(Block b, Block b1){
+	public static boolean collide(Block b, Block b1){
+		boolean hit = false;
 		if(b.collisionBody != null && b1.collisionBody != null){
 			if(b.collisionBody.getClass() == CircleCollisionBody.class){
 				CircleCollisionBody c = (CircleCollisionBody) b.collisionBody;
@@ -33,6 +34,7 @@ public class Collision {
 					float yd = c.getY() - c1.getY();
 					if(Math.abs(xd) < (c.getWidth() + c1.getWidth())/2){
 						if(Math.abs(yd) < (c.getHeight() + c1.getHeight())/2){
+							hit = true;
 //							MOVE FASTEST OBJECT BACK TO MOMENT OF COLLISION
 							if(!c.isFixed() || !c1.isFixed()){
 								if(c.getXVel() == 0 && c.getYVel() == 0 && c1.getXVel() == 0 && c1.getYVel() == 0){
@@ -202,5 +204,6 @@ public class Collision {
 			b.setToCollisionStats();
 			b1.setToCollisionStats();
 		}
+		return hit;
 	}
 }

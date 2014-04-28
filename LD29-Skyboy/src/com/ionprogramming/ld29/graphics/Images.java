@@ -9,6 +9,7 @@ public class Images {
 	
 	public static BufferedImage[] dirt;
 	public static BufferedImage[] player;
+	public static BufferedImage[] bullet;
 	public static BufferedImage cannon;
 	public static BufferedImage grass;
 	public static BufferedImage skyboy;
@@ -37,7 +38,11 @@ public class Images {
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/L1.png")),
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/L2.png")),
 					};
-			cannon = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/grass.png"));
+			bullet = new BufferedImage[]{
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/laser.png")),
+					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/bullet.png")),
+					};
+			cannon = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/cannon.png"));
 			grass = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/grass.png"));
 			skyboy = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/skyboy.png"));
 			play = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));

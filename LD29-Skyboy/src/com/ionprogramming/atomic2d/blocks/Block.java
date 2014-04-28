@@ -177,4 +177,10 @@ public class Block {
 	public void setCollisionStats(){
 		collisionBody.setCentre(getX() + xc, getY() + yc);
 	}
+	
+	public void setRotation(float r, float xa, float ya){
+		for(int n = 0; n < imagesSource.length; n++){
+			images[n] = ImageHandler.rotateImage(imagesSource[n], r, xa, ya);
+		}
+	}
 }

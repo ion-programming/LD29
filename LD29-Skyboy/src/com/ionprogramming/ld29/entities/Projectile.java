@@ -9,24 +9,28 @@ import com.ionprogramming.ld29.graphics.Images;
 public class Projectile extends MovingBlock{
 	
 	public Projectile(float x, float y, String type){
+		setImages(Images.bullet);
+		BoxCollisionBody c = new BoxCollisionBody();
 		if(type == "laser"){
-			setImages(Images.dirt);
+			setCurrentImage(0);
+			resize(10,2);
+			setCentre(5, 1);
+			c.setSize(10, 2);
+			if(Input.ml){
+				setXVel(-200);
+			}
+			else{
+				setXVel(200);
+			}
 		}
 		else if(type == "gun"){
-			setImages(Images.dirt);
+			setCurrentImage(1);
+			resize(5,5);
+			setCentre(2.5f, 2.5f);
+			c.setSize(5, 5);
+			
 		}
-		setCurrentImage(0);
-		resize(10,2);
 		setLoc(x, y);
-		setCentre(5, 1);
-		if(Input.ml){
-			setXVel(-200);
-		}
-		else{
-			setXVel(200);
-		}
-		BoxCollisionBody c = new BoxCollisionBody();
-		c.setSize(10,2);
 		c.setDynamic(false);
 		collisionBody = c;
 	}
