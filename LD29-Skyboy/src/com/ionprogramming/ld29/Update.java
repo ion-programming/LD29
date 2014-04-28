@@ -79,13 +79,44 @@ public class Update {
 				}
 				if(n >= 0){
 					projectiles.get(n).draw(g, LD29.width, LD29.height);
+					if(Collision.checkCollide(p, projectiles.get(n)) && projectiles.get(n).type != "laser"){
+						projectiles.remove(n);
+						Player.health--;
+						n--;
+					}
+					else{
+						for(int c = 0; c < cannons.size(); c++){
+							if(Collision.checkCollide(cannons.get(c), projectiles.get(n)) && projectiles.get(n).type == "laser"){
+								projectiles.remove(n);
+//								hurt cannon
+								n--;
+							}
+						}
+					}
+				}
+			}
+			for(int n = 0; n < pickups.size(); n++){
+				if(Collision.checkCollide(p, pickups.get(n))){
+					if(pickups.get(n).type == 0){
+						Player.health += 4;
+						if(Player.health > Player.maxHealth){
+							Player.health = Player.maxHealth;
+						}
+					}
+					if(pickups.get(n).type == 1){
+						Player.ammo += 10;
+						if(Player.ammo > Player.maxAmmo){
+							Player.ammo = Player.maxAmmo;
+						}
+					}
+					pickups.remove(n);
 				}
 			}
 			p.update();
 			for(int n = 0; n < Map.level.size(); n++){
 				Collision.collide(p, Map.level.get(n));
 				for(int p = 0; p < projectiles.size(); p++){
-					if(Collision.collide(projectiles.get(p), Map.level.get(n))){
+					if(Collision.checkCollide(projectiles.get(p), Map.level.get(n))){
 						projectiles.remove(p);
 						p--;
 					}

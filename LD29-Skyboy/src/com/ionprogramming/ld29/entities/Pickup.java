@@ -10,7 +10,10 @@ import com.ionprogramming.ld29.graphics.Images;
 
 public class Pickup extends Block{
 	
-	public Pickup(int type, float x, float y){
+	public int type = 0;
+	
+	public Pickup(int t, float x, float y){
+		type = t;
 		setImages(new BufferedImage[]{Images.health, Images.ammo});
 		setCurrentImage(type);
 		resize(16, 16);

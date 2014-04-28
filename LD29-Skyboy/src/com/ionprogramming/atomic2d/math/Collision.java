@@ -6,6 +6,43 @@ import com.ionprogramming.atomic2d.collisionbodies.CircleCollisionBody;
 
 public class Collision {
 	
+	public static boolean checkCollide(Block b, Block b1){
+		boolean hit = false;
+		if(b.collisionBody != null && b1.collisionBody != null){
+			if(b.collisionBody.getClass() == CircleCollisionBody.class){
+				CircleCollisionBody c = (CircleCollisionBody) b.collisionBody;
+				if(b1.collisionBody.getClass() == CircleCollisionBody.class){
+					CircleCollisionBody c1 = (CircleCollisionBody) b1.collisionBody;
+					float d = GeomMath.length(c.getX() - c1.getX(), c.getY() - c1.getY());
+					if(d < c.getRadius() + c1.getRadius()){
+						
+					}
+				}
+				else if(b1.collisionBody.getClass() == BoxCollisionBody.class){
+					BoxCollisionBody c1 = (BoxCollisionBody) b1.collisionBody;
+				}
+			}
+			else if(b.collisionBody.getClass() == BoxCollisionBody.class){
+				BoxCollisionBody c = (BoxCollisionBody) b.collisionBody;
+				if(b1.collisionBody.getClass() == CircleCollisionBody.class){
+					CircleCollisionBody c1 = (CircleCollisionBody) b1.collisionBody;
+					
+				}
+				else if(b1.collisionBody.getClass() == BoxCollisionBody.class){
+					BoxCollisionBody c1 = (BoxCollisionBody) b1.collisionBody;
+					float xd = c.getX() - c1.getX();
+					float yd = c.getY() - c1.getY();
+					if(Math.abs(xd) < (c.getWidth() + c1.getWidth())/2){
+						if(Math.abs(yd) < (c.getHeight() + c1.getHeight())/2){
+							hit = true;
+						}
+					}
+				}
+			}
+		}
+		return hit;
+	}
+	
 	public static boolean collide(Block b, Block b1){
 		boolean hit = false;
 		if(b.collisionBody != null && b1.collisionBody != null){
