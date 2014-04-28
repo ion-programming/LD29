@@ -63,16 +63,21 @@ public class Update {
 			g2.setPaint(sky);
 		    g2.fill(new Rectangle2D.Double(0, 0, 800, 500));
 			
-			
-			p.update();
-			for(int n = 0; n < Map.level.size(); n++){
-				Collision.collide(p, Map.level.get(n));
-			}
-			p.draw(g, LD29.width, LD29.height);
 			for(int n = 0; n < projectiles.size(); n++){
 				projectiles.get(n).draw(g, LD29.width, LD29.height);
 				projectiles.get(n).update();
 			}
+			p.update();
+			for(int n = 0; n < Map.level.size(); n++){
+				Collision.collide(p, Map.level.get(n));
+				for(int p = 0; p < projectiles.size(); p++){
+					if(Collision.collide(projectiles.get(p), Map.level.get(n))){
+						projectiles.remove(p);
+						p--;
+					}
+				}
+			}
+			p.draw(g, LD29.width, LD29.height);
 			
 			c.update();
 			c.draw(g, LD29.width, LD29.height);

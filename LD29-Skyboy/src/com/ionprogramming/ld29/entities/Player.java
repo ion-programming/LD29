@@ -11,8 +11,6 @@ import com.ionprogramming.ld29.graphics.Images;
 
 public class Player extends AnimBlock{
 	
-	public String gunType = "laser";
-	
 	public static int health = 20;
 	public static int maxHealth = 20;
 	public static int ammo = 40;

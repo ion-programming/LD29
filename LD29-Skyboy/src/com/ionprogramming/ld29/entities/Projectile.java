@@ -4,6 +4,7 @@ import com.ionprogramming.atomic2d.blocks.MovingBlock;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.math.GeomMath;
 import com.ionprogramming.ld29.Input;
+import com.ionprogramming.ld29.LD29;
 import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 
@@ -15,18 +16,21 @@ public class Projectile extends MovingBlock{
 		setLoc(x, y);
 		if(type == "laser"){
 			setCurrentImage(0);
-			resize(10,2);
-			setCentre(5, 1);
-			c.setSize(10, 2);
+			resize(3,3);
+			setCentre(1.5f, 1.5f);
+			c.setSize(3, 3);
+			float a = GeomMath.angle(Input.mx - LD29.width/2, Input.my - LD29.height/2);
+			setVel(GeomMath.rotate(300, a));
 			if(Input.ml){
-				setXVel(-200);
+				setX(getX() - 8);
 			}
 			else{
-				setXVel(200);
+				setX(getX() + 8);
 			}
+			Update.p.setVel(Update.p.getXVel() - getXVel(), Update.p.getYVel() - getYVel());
 		}
 		else if(type == "gun"){
-			setCurrentImage(1);
+			setCurrentImage(0);
 			resize(5,5);
 			setCentre(2.5f, 2.5f);
 			c.setSize(5, 5);

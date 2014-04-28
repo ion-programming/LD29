@@ -39,7 +39,6 @@ public class Images {
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/L2.png")),
 					};
 			bullet = new BufferedImage[]{
-					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/laser.png")),
 					ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/bullet.png")),
 					};
 			cannon = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/cannon.png"));

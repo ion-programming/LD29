@@ -16,6 +16,8 @@ public class Input {
 	public static boolean j = false;
 	
 	public static boolean ml = false;
+	public static float mx = 0;
+	public static float my = 0;
 	
 	public static void keyPressed(KeyEvent e){
 		if(TitleScreen.showing&&!TitleScreen.ion && !TitleScreen.ld){
@@ -85,17 +87,9 @@ public class Input {
 				}
 				else{
 					if(e.getButton() == MouseEvent.BUTTON1){
-						
-						Update.projectiles.add(new Projectile(Update.p.getX(), Update.p.getY(), Update.p.gunType));
-						if(ml){
-							Update.p.setXVel(Update.p.getXVel()+400);
-						}
-						else{
-							Update.p.setXVel(Update.p.getXVel()-400);
-						}
-					}
-					else if(e.getButton() == MouseEvent.BUTTON3){
-						
+						mx = e.getX();
+						my = e.getY();
+						Update.projectiles.add(new Projectile(Update.p.getX() + Update.p.getXCentre(), Update.p.getY() + Update.p.getYCentre(), "laser"));
 					}
 				}
 			}
