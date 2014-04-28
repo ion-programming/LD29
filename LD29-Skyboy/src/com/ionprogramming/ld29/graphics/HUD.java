@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import com.ionprogramming.ld29.Window;
 import com.ionprogramming.ld29.entities.Player;
 
 public class HUD {
@@ -14,10 +15,12 @@ public class HUD {
 	public static Font f;
 	
 	public static void init(){
-		try {
-			f = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res/NOVASQUARE.TTF") );
-		} catch (FontFormatException | IOException e) {
-			e.printStackTrace();
+		if(!Window.isWindow){
+			try {
+				f = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("res/NOVASQUARE.TTF") );
+			} catch (FontFormatException | IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

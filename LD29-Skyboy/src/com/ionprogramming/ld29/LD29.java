@@ -29,13 +29,14 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		setFocusable(true);
 		setBackground(c);
 
-		Sound.hurt = getAudioClip(getCodeBase(), "res/hurt.wav");
-		Sound.shoot = getAudioClip(getCodeBase(), "res/shoot.wav");
-		Sound.noammo = getAudioClip(getCodeBase(), "res/noammo.wav");
-		Sound.jump = getAudioClip(getCodeBase(), "res/jump.wav");
-		Sound.intro = getAudioClip(getCodeBase(), "res/intro.wav");
-		Sound.music = getAudioClip(getCodeBase(), "res/music.wav");
-		
+		if(!Window.isWindow){
+			Sound.hurt = getAudioClip(getCodeBase(), "res/hurt.wav");
+			Sound.shoot = getAudioClip(getCodeBase(), "res/shoot.wav");
+			Sound.noammo = getAudioClip(getCodeBase(), "res/noammo.wav");
+			Sound.jump = getAudioClip(getCodeBase(), "res/jump.wav");
+			Sound.intro = getAudioClip(getCodeBase(), "res/intro.wav");
+			Sound.music = getAudioClip(getCodeBase(), "res/music.wav");
+		}
 		Images.load();
 		
 		if(TitleScreen.enabled){
