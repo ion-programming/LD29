@@ -36,14 +36,14 @@ public class HUD {
 		
 		//Armour
 		g.setColor(new Color(0x80c0392b, true));
-		g.fillRect(10, 35, 150, 20);
+		g.fillRect(10, 35, (int)((Player.shield/(float)Player.maxShield) * 100 * 1.5), 20);
 		
 		g.setColor(Color.white);
 		g.drawString("ARMOUR", 15, 52);
 		
 		//Ammo
 		g.setColor(new Color(0x80c0392b, true));
-		g.fillRect(10, 60, 150, 20);
+		g.fillRect(10, 60, (int)((Player.ammo/(float)Player.maxAmmo) * 100 * 1.5), 20);
 		
 		g.setColor(Color.white);
 		g.drawString("AMMO", 15, 77);
