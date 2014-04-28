@@ -75,9 +75,5 @@ public class Cannon extends Block{
 				time = 20;
 			}
 		}
-		
-		if(health <= 0){
-			Update.cannons.remove(this);
-		}
 	}
 }
