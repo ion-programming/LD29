@@ -69,7 +69,11 @@ public class Update {
 			
 			for(int n = 0; n < projectiles.size(); n++){
 				projectiles.get(n).update();
-				if(GeomMath.length(projectiles.get(n).getX() - p.getX(), projectiles.get(n).getY() - p.getY()) > 1000){
+				if(projectiles.get(n).type == "bbg" && GeomMath.length(projectiles.get(n).getX() - p.getX(), projectiles.get(n).getY() - p.getY()) > 4000){
+					projectiles.remove(projectiles.get(n));
+					n--;
+				}
+				else if(GeomMath.length(projectiles.get(n).getX() - p.getX(), projectiles.get(n).getY() - p.getY()) > 1000){
 					projectiles.remove(projectiles.get(n));
 					n--;
 				}
