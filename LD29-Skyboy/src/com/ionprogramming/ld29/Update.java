@@ -70,8 +70,8 @@ public class Update {
 			}
 			p.draw(g, LD29.width, LD29.height);
 			for(int n = 0; n < projectiles.size(); n++){
-				projectiles.get(n).update();
 				projectiles.get(n).draw(g, LD29.width, LD29.height);
+				projectiles.get(n).update();
 			}
 			
 			c.update();
