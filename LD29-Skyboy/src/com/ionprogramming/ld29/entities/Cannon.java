@@ -35,7 +35,7 @@ public class Cannon extends Block{
 			setRotation((float)Math.toRadians(rot), 32, 48);
 			time--;
 			if(time <= 0){
-				
+				Update.projectiles.add(new Projectile(getX() + getXCentre(), getY() + getYCentre(), "gun"));
 				time = 20;
 			}
 		}
