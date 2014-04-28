@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
 import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.TitleScreen;
@@ -87,9 +88,12 @@ public class Input {
 				}
 				else{
 					if(e.getButton() == MouseEvent.BUTTON1){
-						mx = e.getX();
-						my = e.getY();
-						Update.projectiles.add(new Projectile(Update.p.getX() + Update.p.getXCentre(), Update.p.getY() + Update.p.getYCentre(), "laser"));
+						if(Player.ammo > 0){
+							mx = e.getX();
+							my = e.getY();
+							Player.ammo--;
+							Update.projectiles.add(new Projectile(Update.p.getX() + Update.p.getXCentre(), Update.p.getY() + Update.p.getYCentre(), "laser"));
+						}
 					}
 				}
 			}

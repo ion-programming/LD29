@@ -82,10 +82,6 @@ public class Update {
 			}
 			p.draw(g, LD29.width, LD29.height);
 
-			for(int n = 0; n < projectiles.size(); n++){	
-				projectiles.get(n).draw(g, LD29.width, LD29.height);
-				projectiles.get(n).update();
-			}
 			for(int n = 0; n < pickups.size(); n++){
 				pickups.get(n).update();
 				pickups.get(n).draw(g, LD29.width, LD29.height);
