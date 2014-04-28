@@ -23,6 +23,7 @@ public class Images {
 	public static BufferedImage health;
 	public static BufferedImage ammo;
 	public static BufferedImage ship;
+	public static BufferedImage city;
 	
 	public static void load(){
 		try {
@@ -58,6 +59,7 @@ public class Images {
 			health = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/health.png"));
 			ammo = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ammo.png"));
 			ship = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ship.png"));
+			city = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/city.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

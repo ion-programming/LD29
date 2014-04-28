@@ -84,6 +84,9 @@ public class Input {
 				else if(!TitleScreen.showing && Update.intro){
 					
 				}
+				else if(Update.ended){
+					
+				}
 				else{
 					if(e.getButton() == MouseEvent.BUTTON1){
 						if(Player.ammo > 0){

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.entities.Cannon;
+import com.ionprogramming.ld29.entities.City;
 import com.ionprogramming.ld29.entities.Dirt;
 import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
@@ -64,8 +65,10 @@ public class Map {
 			else if(pixels[n] == 0xFF7800){
 				Update.ship = new Ship((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
 			}
-			
-			//city 00FFFF
+			else if(pixels[n] == 0x00FFFF){
+				Update.city = new City((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
+			}
+		
 		}
 	}
 	

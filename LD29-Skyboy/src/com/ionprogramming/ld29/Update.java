@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.ionprogramming.atomic2d.math.Collision;
 import com.ionprogramming.atomic2d.math.GeomMath;
 import com.ionprogramming.ld29.entities.Cannon;
+import com.ionprogramming.ld29.entities.City;
 import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
@@ -31,6 +32,8 @@ public class Update {
 	public static Player p;
 	
 	public static Ship ship;
+	
+	public static City city;
 	
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Pickup> pickups = new ArrayList<Pickup>();
@@ -133,6 +136,11 @@ public class Update {
 			
 			Collision.collide(p, ship);
 			ship.draw(g, LD29.width, LD29.height);
+			
+			if(Collision.collide(p, city)){
+				ended = true;
+			}
+			city.draw(g, LD29.width, LD29.height);
 			
 			for(int n = 0; n < pickups.size(); n++){
 				pickups.get(n).update();
