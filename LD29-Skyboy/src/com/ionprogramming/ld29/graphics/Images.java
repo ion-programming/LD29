@@ -24,6 +24,7 @@ public class Images {
 	public static BufferedImage ammo;
 	public static BufferedImage ship;
 	public static BufferedImage city;
+	public static BufferedImage face;
 	
 	public static void load(){
 		try {
@@ -51,6 +52,7 @@ public class Images {
 			play = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/play.png"));
 			map = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/map.png"));
 			earth = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/earth.png"));
+			face = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/face.png"));
 			
 			ion = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ionlogo.png"));
 			ld = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ld29.png"));

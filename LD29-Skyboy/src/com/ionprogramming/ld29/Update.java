@@ -96,10 +96,12 @@ public class Update {
 					}
 					else{
 						for(int c = 0; c < cannons.size(); c++){
-							if(Collision.checkCollide(cannons.get(c), projectiles.get(n)) && projectiles.get(n).type == "laser"){
-								projectiles.remove(n);
-								cannons.get(c).health -= 2;
-								n--;
+							if(n >= 0){
+								if(Collision.checkCollide(cannons.get(c), projectiles.get(n)) && projectiles.get(n).type == "laser"){
+									projectiles.remove(n);
+									cannons.get(c).health -= 2;
+									n--;
+								}
 							}
 						}
 					}
@@ -133,10 +135,7 @@ public class Update {
 				}
 			}
 			p.draw(g, LD29.width, LD29.height);
-			
-			Collision.collide(p, ship);
 			ship.draw(g, LD29.width, LD29.height);
-			
 			if(Collision.collide(p, city)){
 				ended = true;
 			}

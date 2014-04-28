@@ -45,6 +45,7 @@ public class HUD {
 		//Picture
 		g.setColor(new Color(0x80000000, true));
 		g.fillRect(165, 10, 45, 45);
+		g.drawImage(Images.face, 175, 20, null);
 	}
 	
 }
