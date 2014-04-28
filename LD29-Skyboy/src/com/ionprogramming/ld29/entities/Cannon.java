@@ -1,5 +1,7 @@
 package com.ionprogramming.ld29.entities;
 
+import java.awt.image.BufferedImage;
+
 import com.ionprogramming.atomic2d.blocks.Block;
 import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.ld29.graphics.Images;
@@ -7,7 +9,7 @@ import com.ionprogramming.ld29.graphics.Images;
 public class Cannon extends Block{
 	
 	public Cannon(float x, float y){
-		setImages(Images.dirt);
+		setImages(new BufferedImage[]{Images.cannon});
 		resize(64, 64);
 		setLoc(x, y);
 		setCentre(32, 32);
