@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.ionprogramming.atomic2d.math.Collision;
 import com.ionprogramming.ld29.entities.Cannon;
+import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
 import com.ionprogramming.ld29.graphics.HUD;
@@ -21,14 +22,17 @@ public class Update {
 	public static boolean intro = true;
 	public static boolean ended = false;
 	
+	static Graphics2D g2;
+	
+	
 	public static Player p;
+	
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+	public static ArrayList<Pickup> pickups = new ArrayList<Pickup>();
+	public static ArrayList<Cannon> cannons = new ArrayList<Cannon>();
 	
 	static GradientPaint sky = new GradientPaint(0,0,new Color(0x2980b9),0, 500,new Color(0x194868));
 	static GradientPaint mist = new GradientPaint(0,0,new Color(0x40969696, true),0, 500,new Color(0x40CCCCCC, true));
-	
-	static Graphics2D g2;
-	public static Cannon c;
 	
 	public static void initMenu(){
 		TitleScreen.init();
@@ -42,7 +46,6 @@ public class Update {
 	public static void initGame(){
 		Map.load(Images.map);
 		p = new Player(0, 0);
-		c = new Cannon(1024, 256);
 	}
 	
 	public static void updateGame(Graphics g){
@@ -78,9 +81,20 @@ public class Update {
 				}
 			}
 			p.draw(g, LD29.width, LD29.height);
+
+			for(int n = 0; n < projectiles.size(); n++){
+				projectiles.get(n).update();
+				projectiles.get(n).draw(g, LD29.width, LD29.height);
+			}
+			for(int n = 0; n < pickups.size(); n++){
+				pickups.get(n).update();
+				pickups.get(n).draw(g, LD29.width, LD29.height);
+			}
 			
-			c.update();
-			c.draw(g, LD29.width, LD29.height);
+			for(int n = 0; n < cannons.size(); n++){
+				cannons.get(n).update();
+				cannons.get(n).draw(g, LD29.width, LD29.height);
+			}
 			
 			Map.draw(g, LD29.width, LD29.height);
 			

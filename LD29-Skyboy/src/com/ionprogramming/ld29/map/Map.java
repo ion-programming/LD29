@@ -6,7 +6,10 @@ import java.awt.image.DataBufferInt;
 import java.awt.image.Raster;
 import java.util.ArrayList;
 
+import com.ionprogramming.ld29.Update;
+import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Dirt;
+import com.ionprogramming.ld29.entities.Pickup;
 
 public class Map {
 	
@@ -33,6 +36,16 @@ public class Map {
 					}
 				}
 				level.add(new Dirt(t, (n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
+			}
+			
+			else if(pixels[n] == 0xFF0000){
+				Update.pickups.add(new Pickup(0, (n - (int) (n/img.getWidth())*img.getWidth())*64+ 24, ((int) (n/img.getWidth()))*64+44));
+			}
+			else if(pixels[n] == 0xFFFF00){
+				Update.pickups.add(new Pickup(1, (n - (int) (n/img.getWidth())*img.getWidth())*64 + 24, ((int) (n/img.getWidth()))*64+44));
+			}
+			else if(pixels[n] == 0x00FF00){
+				Update.cannons.add(new Cannon((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
 			}
 		}
 	}

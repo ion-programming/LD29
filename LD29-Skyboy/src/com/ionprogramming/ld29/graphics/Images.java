@@ -20,6 +20,8 @@ public class Images {
 	public static BufferedImage ld;
 	public static BufferedImage intro;
 	public static BufferedImage ending;
+	public static BufferedImage health;
+	public static BufferedImage ammo;
 	
 	public static void load(){
 		try {
@@ -52,6 +54,8 @@ public class Images {
 			ld = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ld29.png"));
 			intro = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/intro.png"));
 			ending = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/end.png"));
+			health = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/health.png"));
+			ammo = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ammo.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();
