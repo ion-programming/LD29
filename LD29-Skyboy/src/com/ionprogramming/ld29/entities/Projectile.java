@@ -29,7 +29,7 @@ public class Projectile extends MovingBlock{
 			resize(5,5);
 			setCentre(2.5f, 2.5f);
 			c.setSize(5, 5);
-			float a = GeomMath.angle(Update.p.getX() + Update.p.getXCentre() - getX() - getXCentre(), -(Update.p.getY() + Update.p.getYCentre() - getY() - getYCentre()));
+			float a = GeomMath.angle(Update.p.getX() + Update.p.getXCentre() - getX() - getXCentre(), Update.p.getY() + Update.p.getYCentre() - getY() - getYCentre());
 			setVel(GeomMath.rotate(200, a));
 		}
 		setLoc(x, y);

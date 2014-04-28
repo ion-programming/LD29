@@ -27,12 +27,6 @@ public class MovingBlock extends Block {
 				setY(getY() + yv*(t - time));
 				xv += xa*(t - time);
 				yv += ya*(t - time);
-				if(Math.abs(xv) < 5){
-					xv = 0;
-				}
-				if(Math.abs(yv) < 5){
-					yv = 0;
-				}
 				if(collisionBody != null){
 					setCollisionStats();
 				}

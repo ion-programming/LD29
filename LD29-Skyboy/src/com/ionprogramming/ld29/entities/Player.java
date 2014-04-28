@@ -79,7 +79,7 @@ public class Player extends AnimBlock{
 				}
 			}
 		}
-		if(Input.j && getYVel() == 0){
+		if(Input.j && Math.abs(getYVel()) <= 5){
 			setYVel(-512);
 		}
 		super.update();
