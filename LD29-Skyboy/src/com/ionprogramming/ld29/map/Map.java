@@ -60,6 +60,10 @@ public class Map {
 			else if(pixels[n] == 0xFF00FF){
 				Update.p = new Player((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
 			}
+			
+			//ship FF7800
+			
+			//city 00FFFF
 		}
 	}
 	
