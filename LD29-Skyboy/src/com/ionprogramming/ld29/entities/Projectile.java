@@ -45,8 +45,6 @@ public class Projectile extends MovingBlock{
 	public void update(){
 		setOffset(Update.p.getOffset().x, Update.p.getOffset().y);
 		super.update();
-		if(GeomMath.length(getX() - Update.p.getX(), getY() - Update.p.getY()) > 1000){
-			Update.projectiles.remove(this);
-		}
+		
 	}
 }

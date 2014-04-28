@@ -8,6 +8,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
 import com.ionprogramming.atomic2d.math.Collision;
+import com.ionprogramming.atomic2d.math.GeomMath;
 import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
@@ -67,8 +68,14 @@ public class Update {
 		    g2.fill(new Rectangle2D.Double(0, 0, 800, 500));
 			
 			for(int n = 0; n < projectiles.size(); n++){
-				projectiles.get(n).draw(g, LD29.width, LD29.height);
 				projectiles.get(n).update();
+				if(GeomMath.length(projectiles.get(n).getX() - p.getX(), projectiles.get(n).getY() - p.getY()) > 1000){
+					projectiles.remove(projectiles.get(n));
+					n--;
+				}
+				if(n >= 0){
+					projectiles.get(n).draw(g, LD29.width, LD29.height);
+				}
 			}
 			p.update();
 			for(int n = 0; n < Map.level.size(); n++){
