@@ -9,6 +9,7 @@ import com.ionprogramming.ld29.Input;
 import com.ionprogramming.ld29.LD29;
 import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
+import com.ionprogramming.ld29.map.Map;
 
 public class Player extends AnimBlock{
 	
@@ -81,6 +82,10 @@ public class Player extends AnimBlock{
 		}
 		
 		if(health <= 0){
+			die();
+		}
+		//check range and die if falling too far
+		if(getY() > Map.mapheight + (30 * 64)){
 			die();
 		}
 		super.update();

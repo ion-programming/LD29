@@ -10,14 +10,21 @@ import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Dirt;
 import com.ionprogramming.ld29.entities.Pickup;
+import com.ionprogramming.ld29.entities.Player;
 
 public class Map {
 	
 	public static ArrayList<Dirt> level = new ArrayList<Dirt>();
+	public static int mapwidth = 0;
+	public static int mapheight = 0;
 	
 	public static void load(BufferedImage i){
 		level.clear();
 		BufferedImage img = new BufferedImage(i.getWidth(), i.getHeight(), BufferedImage.TYPE_INT_RGB);
+		
+		mapwidth = i.getWidth() * 64;
+		mapheight = i.getHeight() * 64;
+		
 	    img.getGraphics().drawImage(i, 0, 0, null);
 		Raster r = img.getData();
 		DataBufferInt data = (DataBufferInt)r.getDataBuffer();
@@ -49,6 +56,9 @@ public class Map {
 			}
 			else if(pixels[n] == 0x0000FF){
 				Update.cannons.add(new Cannon(1, (n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
+			}
+			else if(pixels[n] == 0xFF00FF){
+				Update.p = new Player((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
 			}
 		}
 	}
