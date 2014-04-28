@@ -9,12 +9,14 @@ import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 
 public class Projectile extends MovingBlock{
+	public String type;
 	
-	public Projectile(float x, float y, String type){
+	public Projectile(float x, float y, String t){
+		type = t;
 		setImages(Images.bullet);
 		BoxCollisionBody c = new BoxCollisionBody();
 		setLoc(x, y);
-		if(type == "laser"){
+		if(t == "laser"){
 			setCurrentImage(0);
 			resize(3,3);
 			setCentre(1.5f, 1.5f);
@@ -29,11 +31,19 @@ public class Projectile extends MovingBlock{
 			}
 			Update.p.setVel(Update.p.getXVel() - getXVel(), Update.p.getYVel() - getYVel());
 		}
-		else if(type == "gun"){
+		else if(t == "gun"){
 			setCurrentImage(0);
 			resize(5,5);
 			setCentre(2.5f, 2.5f);
 			c.setSize(5, 5);
+			float a = GeomMath.angle(Update.p.getX() + Update.p.getXCentre() - getX() - getXCentre(), Update.p.getY() + Update.p.getYCentre() - getY() - getYCentre());
+			setVel(GeomMath.rotate(200, a));
+		}
+		else if(t == "bbg"){
+			setCurrentImage(0);
+			resize(20, 20);
+			setCentre(10f, 10f);
+			c.setSize(20, 20);
 			float a = GeomMath.angle(Update.p.getX() + Update.p.getXCentre() - getX() - getXCentre(), Update.p.getY() + Update.p.getYCentre() - getY() - getYCentre());
 			setVel(GeomMath.rotate(200, a));
 		}
@@ -45,6 +55,7 @@ public class Projectile extends MovingBlock{
 	public void update(){
 		setOffset(Update.p.getOffset().x, Update.p.getOffset().y);
 		super.update();
+
 		
 	}
 }

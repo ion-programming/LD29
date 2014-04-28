@@ -45,7 +45,10 @@ public class Map {
 				Update.pickups.add(new Pickup(1, (n - (int) (n/img.getWidth())*img.getWidth())*64 + 24, ((int) (n/img.getWidth()))*64+44));
 			}
 			else if(pixels[n] == 0x00FF00){
-				Update.cannons.add(new Cannon((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
+				Update.cannons.add(new Cannon(0, (n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
+			}
+			else if(pixels[n] == 0x0000FF){
+				Update.cannons.add(new Cannon(1, (n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64));
 			}
 		}
 	}

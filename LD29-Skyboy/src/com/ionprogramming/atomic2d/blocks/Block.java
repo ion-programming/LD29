@@ -180,7 +180,7 @@ public class Block {
 	
 	public void setRotation(float r, float xa, float ya){
 		for(int n = 0; n < imagesSource.length; n++){
-			images[n] = ImageHandler.rotateImage(imagesSource[n], r, xa, ya);
+			images[n] = ImageHandler.rotateImage(ImageHandler.resizeImage(imagesSource[n], (int) getWidth(), (int) getHeight()), r, xa, ya);
 		}
 	}
 }
