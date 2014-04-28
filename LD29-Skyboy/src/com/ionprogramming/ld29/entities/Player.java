@@ -7,6 +7,7 @@ import com.ionprogramming.atomic2d.collisionbodies.BoxCollisionBody;
 import com.ionprogramming.atomic2d.graphics.Animation;
 import com.ionprogramming.ld29.Input;
 import com.ionprogramming.ld29.LD29;
+import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 
 public class Player extends AnimBlock{
@@ -78,6 +79,10 @@ public class Player extends AnimBlock{
 		if(Input.j && Math.abs(getYVel()) <= 5){
 			setYVel(-512);
 		}
+		
+		if(health <= 0){
+			die();
+		}
 		super.update();
 	}
 	
@@ -85,5 +90,12 @@ public class Player extends AnimBlock{
 	public void draw(Graphics g, float w, float h){
 		setOffset(- getX() + LD29.width/2 - getWidth()/2, - getY() + LD29.height/2 - getHeight()/2);
 		super.draw(g, w, h);
+	}
+	
+	public static void die(){
+		Update.projectiles.clear();
+		Update.cannons.clear();
+		Update.pickups.clear();
+		Update.initGame();
 	}
 }

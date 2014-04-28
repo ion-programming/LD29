@@ -48,9 +48,6 @@ public class Input {
 			else if(e.getKeyCode() == KeyEvent.VK_SPACE){
 				j = true;
 			}
-			else if(e.getKeyCode() == KeyEvent.VK_X){
-				Update.ended = true;
-			}
 		}
 	}
 	
