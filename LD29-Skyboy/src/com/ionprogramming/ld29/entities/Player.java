@@ -31,7 +31,7 @@ public class Player extends AnimBlock{
 		BoxCollisionBody c = new BoxCollisionBody();
 		c.setSize(56, 56);
 		c.setFriction(0.8f);
-		c.setBounce(0.4f);
+		c.setBounce(0.1f);
 		c.setDynamic(true);
 		collisionBody = c;
 		setCollisionStats();

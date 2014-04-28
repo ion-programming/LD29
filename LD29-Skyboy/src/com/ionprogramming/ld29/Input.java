@@ -30,6 +30,11 @@ public class Input {
 				Update.intro = false;
 			}
 		}
+		else if(Update.ended){
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				System.exit(0);;
+			}
+		}
 		else{
 			if(e.getKeyCode() == KeyEvent.VK_A){
 				l = true;
@@ -40,6 +45,9 @@ public class Input {
 			else if(e.getKeyCode() == KeyEvent.VK_SPACE){
 				j = true;
 			}
+			else if(e.getKeyCode() == KeyEvent.VK_X){
+				Update.ended = true;
+			}
 		}
 	}
 	
@@ -48,6 +56,9 @@ public class Input {
 			
 		}
 		else if(!TitleScreen.showing && Update.intro){
+			
+		}
+		else if(Update.ended){
 			
 		}
 		else{
