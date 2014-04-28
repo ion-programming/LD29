@@ -12,6 +12,7 @@ public class Projectile extends MovingBlock{
 	public Projectile(float x, float y, String type){
 		setImages(Images.bullet);
 		BoxCollisionBody c = new BoxCollisionBody();
+		setLoc(x, y);
 		if(type == "laser"){
 			setCurrentImage(0);
 			resize(10,2);
@@ -32,7 +33,6 @@ public class Projectile extends MovingBlock{
 			float a = GeomMath.angle(Update.p.getX() + Update.p.getXCentre() - getX() - getXCentre(), Update.p.getY() + Update.p.getYCentre() - getY() - getYCentre());
 			setVel(GeomMath.rotate(200, a));
 		}
-		setLoc(x, y);
 		c.setDynamic(false);
 		collisionBody = c;
 	}

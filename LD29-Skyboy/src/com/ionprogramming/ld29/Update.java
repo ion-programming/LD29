@@ -42,7 +42,7 @@ public class Update {
 	public static void initGame(){
 		Map.load(Images.map);
 		p = new Player(0, 0);
-		c = new Cannon(0, 0);
+		c = new Cannon(1024, 256);
 	}
 	
 	public static void updateGame(Graphics g){
