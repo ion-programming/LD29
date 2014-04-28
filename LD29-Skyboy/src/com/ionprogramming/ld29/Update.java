@@ -147,12 +147,14 @@ public class Update {
 			}
 			
 			for(int n = 0; n < cannons.size(); n++){
-				if(cannons.get(n).health <= 0){
-					cannons.remove(n);
-					n--;
+				if(n >= 0){
+					if(cannons.get(n).health <= 0){
+						cannons.remove(n);
+						n--;
+					}
+					cannons.get(n).update();
+					cannons.get(n).draw(g, LD29.width, LD29.height);
 				}
-				cannons.get(n).update();
-				cannons.get(n).draw(g, LD29.width, LD29.height);
 			}
 			
 			Map.draw(g, LD29.width, LD29.height);
