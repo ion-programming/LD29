@@ -17,6 +17,7 @@ public class Images {
 	public static BufferedImage earth;	
 	public static BufferedImage ion;
 	public static BufferedImage ld;
+	public static BufferedImage intro;
 
 	
 	public static void load(){
@@ -45,6 +46,7 @@ public class Images {
 			
 			ion = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ionlogo.png"));
 			ld = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/ld29.png"));
+			intro = ImageIO.read(Images.class.getClassLoader().getResourceAsStream("res/intro.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();

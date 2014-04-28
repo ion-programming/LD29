@@ -25,6 +25,11 @@ public class Input {
 				TitleScreen.showing = false;
 			}
 		}
+		else if(!TitleScreen.showing && Update.intro){
+			if(e.getKeyCode() == KeyEvent.VK_ENTER){
+				Update.intro = false;
+			}
+		}
 		else{
 			if(e.getKeyCode() == KeyEvent.VK_A){
 				l = true;
@@ -40,6 +45,9 @@ public class Input {
 	
 	public static void keyReleased(KeyEvent e){
 		if(TitleScreen.showing){
+			
+		}
+		else if(!TitleScreen.showing && Update.intro){
 			
 		}
 		else{
@@ -60,6 +68,9 @@ public class Input {
 			public void mousePressed(MouseEvent e){
 				if(TitleScreen.showing){
 					//Do nothing... Theres no mouse input here
+				}
+				else if(!TitleScreen.showing && Update.intro){
+					
 				}
 				else{
 					if(e.getButton() == MouseEvent.BUTTON1){

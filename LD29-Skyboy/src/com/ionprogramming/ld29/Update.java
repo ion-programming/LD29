@@ -1,5 +1,6 @@
 package com.ionprogramming.ld29;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -12,6 +13,8 @@ import com.ionprogramming.ld29.graphics.TitleScreen;
 import com.ionprogramming.ld29.map.Map;
 
 public class Update {
+	
+	public static boolean intro = true;
 	
 	public static Player p;
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
@@ -31,16 +34,23 @@ public class Update {
 	}
 	
 	public static void updateGame(Graphics g){
-		p.update();
-		for(int n = 0; n < Map.level.size(); n++){
-			Collision.collide(p, Map.level.get(n));
+		if(intro){
+			g.setColor(Color.black);
+			g.fillRect(0, 0, LD29.width, LD29.height);
+			g.drawImage(Images.intro, 0, 0, null);
 		}
-		p.draw(g, LD29.width, LD29.height);
-		for(int n = 0; n < projectiles.size(); n++){
-			projectiles.get(n).update();
-			projectiles.get(n).draw(g, LD29.width, LD29.height);
+		else{
+			p.update();
+			for(int n = 0; n < Map.level.size(); n++){
+				Collision.collide(p, Map.level.get(n));
+			}
+			p.draw(g, LD29.width, LD29.height);
+			for(int n = 0; n < projectiles.size(); n++){
+				projectiles.get(n).update();
+				projectiles.get(n).draw(g, LD29.width, LD29.height);
+			}
+			Map.draw(g, LD29.width, LD29.height);
+			HUD.render(g);
 		}
-		Map.draw(g, LD29.width, LD29.height);
-		HUD.render(g);
 	}
 }
