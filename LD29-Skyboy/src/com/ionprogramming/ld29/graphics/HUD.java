@@ -24,7 +24,7 @@ public class HUD {
 	public static void render(Graphics g){
 		//Background
 		g.setColor(new Color(0x802c3e50, true));
-		g.fillRect(5, 5, 235, 80);
+		g.fillRect(5, 5, 210, 55);
 		
 		//Health
 		g.setColor(new Color(0x80c0392b, true));
@@ -34,23 +34,17 @@ public class HUD {
 		g.setFont(f.deriveFont(18f));
 		g.drawString("HEALTH", 15, 27);
 		
-		//Armour
-		g.setColor(new Color(0x80c0392b, true));
-		g.fillRect(10, 35, (int)((Player.shield/(float)Player.maxShield) * 100 * 1.5), 20);
-		
-		g.setColor(Color.white);
-		g.drawString("ARMOUR", 15, 52);
 		
 		//Ammo
 		g.setColor(new Color(0x80c0392b, true));
-		g.fillRect(10, 60, (int)((Player.ammo/(float)Player.maxAmmo) * 100 * 1.5), 20);
+		g.fillRect(10, 35, (int)((Player.ammo/(float)Player.maxAmmo) * 100 * 1.5), 20);
 		
 		g.setColor(Color.white);
-		g.drawString("AMMO", 15, 77);
+		g.drawString("AMMO", 15, 53);
 		
 		//Picture
 		g.setColor(new Color(0x80000000, true));
-		g.fillRect(165, 10, 70, 70);
+		g.fillRect(165, 10, 45, 45);
 	}
 	
 }

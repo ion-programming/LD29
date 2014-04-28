@@ -13,10 +13,8 @@ public class Player extends AnimBlock{
 	
 	public String gunType = "laser";
 	
-	public static int health = 5;
-	public static int maxHealth = 5;
-	public static int shield = 15;
-	public static int maxShield = 15;
+	public static int health = 20;
+	public static int maxHealth = 20;
 	public static int ammo = 40;
 	public static int maxAmmo = 40;
 	
