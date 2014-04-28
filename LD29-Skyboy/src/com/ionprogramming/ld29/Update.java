@@ -88,7 +88,7 @@ public class Update {
 						for(int c = 0; c < cannons.size(); c++){
 							if(Collision.checkCollide(cannons.get(c), projectiles.get(n)) && projectiles.get(n).type == "laser"){
 								projectiles.remove(n);
-//								hurt cannon
+								cannons.get(c).health -= 2;
 								n--;
 							}
 						}

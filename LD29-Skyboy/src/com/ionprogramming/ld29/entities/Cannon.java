@@ -13,6 +13,8 @@ public class Cannon extends Block{
 	public float rot = 0;
 	public int time = 0;
 	public int type = 0;
+	public int health = 4;
+	public int maxHealth = 4;
 	
 	public Cannon(int t, float x, float y){
 		
@@ -32,6 +34,8 @@ public class Cannon extends Block{
 			resize(256, 256);
 			setCentre(128, 192);
 			c.setSize(128, 128);
+			health = 20;   
+			maxHealth = 20;
 		}
 		c.setFriction(1);
 		c.setBounce(1);
@@ -70,6 +74,10 @@ public class Cannon extends Block{
 				Update.projectiles.add(new Projectile(getX() + getXCentre(), getY() + getYCentre(), "gun"));
 				time = 20;
 			}
+		}
+		
+		if(health <= 0){
+			Update.cannons.remove(this);
 		}
 	}
 }

@@ -97,5 +97,7 @@ public class Player extends AnimBlock{
 		Update.cannons.clear();
 		Update.pickups.clear();
 		Update.initGame();
+		ammo = 40;
+		health = 20;
 	}
 }
