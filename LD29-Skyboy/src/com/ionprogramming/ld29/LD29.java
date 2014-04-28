@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.graphics.TitleScreen;
+import com.ionprogramming.ld29.sfx.Sound;
 
 public class LD29 extends Applet implements Runnable, KeyListener {
 	private static final long serialVersionUID = 1L;
@@ -28,6 +29,13 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		setFocusable(true);
 		setBackground(c);
 
+		Sound.hurt = getAudioClip(getCodeBase(), "res/hurt.wav");
+		Sound.shoot = getAudioClip(getCodeBase(), "res/shoot.wav");
+		Sound.noammo = getAudioClip(getCodeBase(), "res/noammo.wav");
+		Sound.jump = getAudioClip(getCodeBase(), "res/jump.wav");
+		Sound.intro = getAudioClip(getCodeBase(), "res/intro.wav");
+		Sound.music = getAudioClip(getCodeBase(), "res/music.wav");
+		
 		Images.load();
 		
 		if(TitleScreen.enabled){
@@ -36,6 +44,7 @@ public class LD29 extends Applet implements Runnable, KeyListener {
 		else{
 			Update.initGame();
 		}
+		Sound.intro.play();
 	}
 
 	public void start() {

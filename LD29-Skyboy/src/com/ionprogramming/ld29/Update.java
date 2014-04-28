@@ -17,6 +17,7 @@ import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.graphics.TitleScreen;
 import com.ionprogramming.ld29.map.Map;
+import com.ionprogramming.ld29.sfx.Sound;
 
 public class Update {
 	
@@ -46,7 +47,9 @@ public class Update {
 	
 	public static void initGame(){
 		Map.load(Images.map);
-		
+		Sound.music.stop();
+		Sound.music.loop();
+		Sound.intro.stop();
 	}
 	
 	public static void updateGame(Graphics g){
@@ -82,6 +85,7 @@ public class Update {
 					if(Collision.checkCollide(p, projectiles.get(n)) && projectiles.get(n).type != "laser"){
 						projectiles.remove(n);
 						Player.health--;
+						Sound.hurt.play();
 						n--;
 					}
 					else{

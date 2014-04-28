@@ -9,6 +9,7 @@ import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
 import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.TitleScreen;
+import com.ionprogramming.ld29.sfx.Sound;
 
 public class Input {
 	
@@ -35,7 +36,7 @@ public class Input {
 		}
 		else if(Update.ended){
 			if(e.getKeyCode() == KeyEvent.VK_ENTER){
-				System.exit(0);;
+				System.exit(0);
 			}
 		}
 		else{
@@ -89,7 +90,11 @@ public class Input {
 							mx = e.getX();
 							my = e.getY();
 							Player.ammo--;
+							Sound.shoot.play();
 							Update.projectiles.add(new Projectile(Update.p.getX() + Update.p.getXCentre(), Update.p.getY() + Update.p.getYCentre(), "laser"));
+						}
+						else{
+							Sound.noammo.play();
 						}
 					}
 				}

@@ -10,6 +10,7 @@ import com.ionprogramming.ld29.LD29;
 import com.ionprogramming.ld29.Update;
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.map.Map;
+import com.ionprogramming.ld29.sfx.Sound;
 
 public class Player extends AnimBlock{
 	
@@ -78,6 +79,7 @@ public class Player extends AnimBlock{
 			}
 		}
 		if(Input.j && Math.abs(getYVel()) <= 5){
+			Sound.jump.play();
 			setYVel(-512);
 		}
 		
