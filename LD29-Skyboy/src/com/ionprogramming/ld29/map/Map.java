@@ -11,6 +11,7 @@ import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Dirt;
 import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
+import com.ionprogramming.ld29.entities.Ship;
 
 public class Map {
 	
@@ -60,8 +61,9 @@ public class Map {
 			else if(pixels[n] == 0xFF00FF){
 				Update.p = new Player((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
 			}
-			
-			//ship FF7800
+			else if(pixels[n] == 0xFF7800){
+				Update.ship = new Ship((n - (int) (n/img.getWidth())*img.getWidth())*64, ((int) (n/img.getWidth()))*64);
+			}
 			
 			//city 00FFFF
 		}

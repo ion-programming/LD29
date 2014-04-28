@@ -13,6 +13,7 @@ import com.ionprogramming.ld29.entities.Cannon;
 import com.ionprogramming.ld29.entities.Pickup;
 import com.ionprogramming.ld29.entities.Player;
 import com.ionprogramming.ld29.entities.Projectile;
+import com.ionprogramming.ld29.entities.Ship;
 import com.ionprogramming.ld29.graphics.HUD;
 import com.ionprogramming.ld29.graphics.Images;
 import com.ionprogramming.ld29.graphics.TitleScreen;
@@ -28,6 +29,8 @@ public class Update {
 	
 	
 	public static Player p;
+	
+	public static Ship ship;
 	
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Pickup> pickups = new ArrayList<Pickup>();
@@ -127,7 +130,10 @@ public class Update {
 				}
 			}
 			p.draw(g, LD29.width, LD29.height);
-
+			
+			Collision.collide(p, ship);
+			ship.draw(g, LD29.width, LD29.height);
+			
 			for(int n = 0; n < pickups.size(); n++){
 				pickups.get(n).update();
 				pickups.get(n).draw(g, LD29.width, LD29.height);
